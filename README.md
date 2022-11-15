@@ -90,4 +90,9 @@ Twitter やよくある掲示板だとこのあたりの雰囲気が掴みづら
 そこで、プレイヤーやその他の情報を多く取ることでゲームの募集や参加へのハードルを下げ、VALORANT をプレイする多くの人がさらに楽しめるような場所が提供できたらと思い、このサービスを考案しました。
 
 ## Figma URL
+
 https://www.figma.com/file/gSILTMCLoGlu3PJTSpLb3k/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?node-id=0%3A1
+
+## ER 図
+
+https://drive.google.com/file/d/1h9BTvK0KJJOLRuSHbxT9vY5GtVKiCBUn/view?usp=sharing
