@@ -27,6 +27,10 @@ module Api
     config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
     config.time_zone = 'Tokyo'
     config.active_record.default_timezone = :local
+    config.session_store :cookie_store, key: '_interslice_session'
+    config.middleware.use ActionDispatch::Cookies # Required for all session management
+    config.middleware.use ActionDispatch::Session::CookieStore, config.session_options
+    config.middleware.use ActionDispatch::Flash
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
