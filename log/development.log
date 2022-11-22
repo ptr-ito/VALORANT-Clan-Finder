@@ -1,0 +1,1028 @@
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE DATABASE `api_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `api_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.7ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-11-15 13:32:26.522325', '2022-11-15 13:32:26.522325')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2022-11-15 22:32:33 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 635)
+Completed 200 OK in 10ms (Views: 3.7ms | ActiveRecord: 0.0ms | Allocations: 4944)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20221117065346)
+  [1m[35m (8.8ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `provider` varchar(255) DEFAULT 'email' NOT NULL, `uid` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime(6), `allow_password_change` tinyint(1) DEFAULT FALSE, `remember_created_at` datetime(6), `confirmation_token` varchar(255), `confirmed_at` datetime(6), `confirmation_sent_at` datetime(6), `unconfirmed_email` varchar(255), `name` varchar(255), `nickname` varchar(255), `image` varchar(255), `email` varchar(255), `tokens` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_uid_and_provider` ON `users` (`uid`, `provider`)[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_confirmation_token` ON `users` (`confirmation_token`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221117065346')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2022-11-17 16:12:02 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Rails::WelcomeController#index as */*
+  Parameters: {"title"=>"test_title01", "contents"=>"contents01", "status"=>"draft"}
+  Rendering /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 522)
+Completed 200 OK in 6ms (Views: 2.4ms | ActiveRecord: 0.0ms | Allocations: 3697)
+
+
+Started GET "/api/v1/auth" for ::1 at 2022-11-17 16:12:34 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth"):
+  
+Started POST "/api/v1/auth" for 127.0.0.1 at 2022-11-17 16:13:02 +0900
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:16:00 +0900
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:43:50 +0900
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:46:05 +0900
+
+NoMethodError - undefined method `helper_method' for ApplicationController:Class
+  helper_method :current_user, :user_signed_in?
+  ^^^^^^^^^^^^^:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:51:09 +0900
+
+NoMethodError - undefined method `helper_method' for ApplicationController:Class
+  helper_method :current_user, :user_signed_in?
+  ^^^^^^^^^^^^^:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/auth" for ::1 at 2022-11-17 16:51:34 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/auth"):
+  
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:51:43 +0900
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started GET "/" for ::1 at 2022-11-17 16:52:44 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | Allocations: 302)
+Completed 200 OK in 2ms (Views: 1.6ms | Allocations: 984)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:52:55 +0900
+
+ArgumentError - Before process_action callback :verify_authenticity_token has not been defined:
+  app/controllers/application_controller.rb:4:in `<class:ApplicationController>'
+  app/controllers/application_controller.rb:1:in `<main>'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:55:05 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja"}
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000011573e428>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000011573e428>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000011573e428>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 652ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 186612)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:55:26 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja"}
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x0000000114ac4ff8>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x0000000114ac4ff8>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x0000000114ac4ff8>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/?hl=ja", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `created_at`, `updated_at`) VALUES ('email', 'test@example.com', '$2a$12$4bNrvnqRXbGwudrlt1GjEul.dbcWp5hFpvamuTctDWHEH7NY.r3om', NULL, NULL, FALSE, NULL, 'V8njSERPd8xp_pJ53Sys', NULL, '2022-11-17 16:55:27.135537', NULL, NULL, NULL, NULL, 'test@example.com', NULL, '2022-11-17 16:55:27.135459', '2022-11-17 16:55:27.135459')[0m
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise_token_auth-1.2.1/app/views/devise/mailer/confirmation_instructions.html.erb
+  Rendered /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise_token_auth-1.2.1/app/views/devise/mailer/confirmation_instructions.html.erb (Duration: 9.2ms | Allocations: 5903)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.9ms
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 1.8ms | Allocations: 30404)
+
+
+
+NoMethodError - undefined method `confirmation_url' for #<ActionView::Base:0x0000000002a0a8>
+<p>'.freeze;@output_buffer.append=( link_to t('.confirm_account_link'), confirmation_url(@resource, {confirmation_token: @token, config: message['client-config'].to_s, redirect_url: message['redirect-url']}).html_safe );@output_buffer.safe_append='</p>
+                                                                        ^^^^^^^^^^^^^^^^:
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:58:15 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 422 Unprocessable Entity in 281ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 587)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 16:58:22 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Completed 422 Unprocessable Entity in 274ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 450)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 17:00:18 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/"}
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000001169161f0>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000001169161f0>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000001169161f0>, params: {"email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 292ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 5563)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 17:00:57 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"ptr2839@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/"}
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000001169b50e8>, params: {"email"=>"ptr2839@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000001169b50e8>, params: {"email"=>"ptr2839@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :confirm_success_url. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00000001169b50e8>, params: {"email"=>"ptr2839@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "confirm_success_url"=>"https://www.google.com/", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ptr2839@gmail.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `created_at`, `updated_at`) VALUES ('email', 'ptr2839@gmail.com', '$2a$12$XI2ybk5jjEXENbxCo3bNCODc6vYXcWLjST/kh8WSNn/hEXaXRJD66', NULL, NULL, FALSE, NULL, 'LJbnX_ZsxHkauCyDp4Gg', NULL, '2022-11-17 17:00:58.034435', NULL, NULL, NULL, NULL, 'ptr2839@gmail.com', NULL, '2022-11-17 17:00:58.034401', '2022-11-17 17:00:58.034401')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise_token_auth-1.2.1/app/views/devise/mailer/confirmation_instructions.html.erb
+  Rendered /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/devise_token_auth-1.2.1/app/views/devise/mailer/confirmation_instructions.html.erb (Duration: 8.4ms | Allocations: 5422)
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.2ms
+Completed 500 Internal Server Error in 288ms (ActiveRecord: 1.0ms | Allocations: 13684)
+
+
+
+NoMethodError - undefined method `confirmation_url' for #<ActionView::Base:0x0000000002a288>
+<p>'.freeze;@output_buffer.append=( link_to t('.confirm_account_link'), confirmation_url(@resource, {confirmation_token: @token, config: message['client-config'].to_s, redirect_url: message['redirect-url']}).html_safe );@output_buffer.safe_append='</p>
+                                                                        ^^^^^^^^^^^^^^^^:
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 17:02:50 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"ptr2839@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'ptr2839@gmail.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 258ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 11119)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 17:03:07 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test02@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test02@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `created_at`, `updated_at`) VALUES ('email', 'test02@example.com', '$2a$12$AIzf9FrB0uHQvJ0aCqV70ONQYM1358eealiULATZoTv7v43CQW5ja', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test02@example.com', NULL, '2022-11-17 17:03:08.213532', '2022-11-17 17:03:08.213532')[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"wf4rxm4adla8pKb4kk8uew\":{\"token\":\"$2a$10$phjFoREELax31DV6.G3kQ.09BlXka2eSGeLuDcEg5OG/tqmn88eEW\",\"expiry\":1669881788}}', `users`.`updated_at` = '2022-11-17 17:03:08.279997' WHERE `users`.`id` = 3[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 355ms (Views: 0.1ms | ActiveRecord: 1.8ms | Allocations: 9673)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 17:03:11 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test02@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test02@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 291ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 5102)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 17:03:17 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test03@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test03@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `created_at`, `updated_at`) VALUES ('email', 'test03@example.com', '$2a$12$UabZvNc0QmQpxZh87lqWLuB.Tg5VuBwAZ9Dyammcn2/d.BEQfgYCO', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test03@example.com', NULL, '2022-11-17 17:03:17.627423', '2022-11-17 17:03:17.627423')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"lvp-BT2LJXHj41ZwFS-hQw\":{\"token\":\"$2a$10$PvCSDMIQHFsXXjSm65SD9eygNMCjSFVmjEaFHGVi11E2pjstXtbDS\",\"expiry\":1669881797}}', `users`.`updated_at` = '2022-11-17 17:03:17.697865' WHERE `users`.`id` = 4[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 360ms (Views: 0.5ms | ActiveRecord: 2.1ms | Allocations: 8916)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Hoge (20221117065346)
+  [1m[36mActiveRecord::SchemaMigration Delete All (1.2ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20221117065346'[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20221117095432)
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `provider` varchar(255) DEFAULT 'email' NOT NULL, `uid` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime(6), `allow_password_change` tinyint(1) DEFAULT FALSE, `remember_created_at` datetime(6), `confirmation_token` varchar(255), `confirmed_at` datetime(6), `confirmation_sent_at` datetime(6), `unconfirmed_email` varchar(255), `name` varchar(255), `nickname` varchar(255), `image` varchar(255), `email` varchar(255), `tokens` text, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime(6), `last_sign_in_at` datetime(6), `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (4.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS `api_development`[0m
+  [1m[35m (3.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS `api_test`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `api_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `api_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to DeviseTokenAuthCreateUsers (20221117095432)
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `provider` varchar(255) DEFAULT 'email' NOT NULL, `uid` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `reset_password_sent_at` datetime(6), `allow_password_change` tinyint(1) DEFAULT FALSE, `remember_created_at` datetime(6), `confirmation_token` varchar(255), `confirmed_at` datetime(6), `confirmation_sent_at` datetime(6), `unconfirmed_email` varchar(255), `name` varchar(255), `nickname` varchar(255), `image` varchar(255), `email` varchar(255), `tokens` text, `sign_in_count` int DEFAULT 0 NOT NULL, `current_sign_in_at` datetime(6), `last_sign_in_at` datetime(6), `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (3.4ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_email` ON `users` (`email`)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_uid_and_provider` ON `users` (`uid`, `provider`)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_reset_password_token` ON `users` (`reset_password_token`)[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE UNIQUE INDEX `index_users_on_confirmation_token` ON `users` (`confirmation_token`)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221117095432')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-11-17 19:08:04.965870', '2022-11-17 19:08:04.965870')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.1ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 19:30:49 +0900
+
+NoMethodError - undefined method `devise' for User:Class:
+  app/models/user.rb:6:in `<class:User>'
+  app/models/user.rb:5:in `<main>'
+  config/routes.rb:4:in `block (3 levels) in <main>'
+  config/routes.rb:3:in `block (2 levels) in <main>'
+  config/routes.rb:2:in `block in <main>'
+  config/routes.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 19:31:07 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/auth"):
+  
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 19:31:11 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/auth"):
+  
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 19:31:12 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/auth"):
+  
+Started POST "/api/v1/auth" for 127.0.0.1 at 2022-11-17 21:12:12 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+
+SyntaxError - syntax error, unexpected local variable or method, expecting `end'
+    18n.locale = :ja
+      ^
+/Users/ptr/workspace/ポートフォリオ/V2/VALORANT-Link/api/app/controllers/application_controller.rb:7: syntax error, unexpected `end', expecting end-of-input:
+  app/controllers/application_controller.rb:5:in `'
+  app/controllers/api/v1/auth/registrations_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/auth" for 127.0.0.1 at 2022-11-17 21:13:34 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"name"=>"test", "email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+[31mUnpermitted parameter: :name. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000010a3c1210>, params: {"name"=>"test", "email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :name. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000010a3c1210>, params: {"name"=>"test", "email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+[31mUnpermitted parameter: :name. Context: { controller: Api::V1::Auth::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x000000010a3c1210>, params: {"name"=>"test", "email"=>"test@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "controller"=>"api/v1/auth/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test@example.com', '$2a$12$4N.97GYpgQHmu7RLDKLRO.SkGa56GSYjvtFe/FnLf8Sbrh2/X4lmm', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:13:34.827994', '2022-11-17 21:13:34.827994')[0m
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"Uo6WztEdDHIRb8BXyq6gEA\":{\"token\":\"$2a$10$Ylu3uuvLR6uxjlwrkRLrU.0L0MumwDEwxagFEsxLhNKkq4dByD5/a\",\"expiry\":1669896814}}', `users`.`updated_at` = '2022-11-17 21:13:34.899307' WHERE `users`.`id` = 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Completed 200 OK in 507ms (Views: 0.1ms | ActiveRecord: 9.2ms | Allocations: 128546)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:15:41 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test01@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test01@example.com', '$2a$12$2simDIBcX2e5USbb2sBdEeD1omOe7df2C5uMqNHIwZHpRTGjhw3zy', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test01@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:15:41.893587', '2022-11-17 21:15:41.893587')[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"8o2GLRWCv-JhGeceDa7DgQ\":{\"token\":\"$2a$10$yaSlufgMWfNGuZmcXZUnWu9U1NEaaUc.e4uzGekyAXEBIyJ9.uxwa\",\"expiry\":1669896941}}', `users`.`updated_at` = '2022-11-17 21:15:41.957958' WHERE `users`.`id` = 2[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+Completed 200 OK in 336ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 9531)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:18:02 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test01@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test01@example.com', '$2a$12$BeNkoYxuMqRClL0OiINTCO6sfPMe1cCjukWo3lhHRoY8P7UnjPXFS', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test01@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:18:02.370878', '2022-11-17 21:18:02.370878')[0m
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"Muk7qTtxuVXuU5jXoTinvQ\":{\"token\":\"$2a$10$1jDfNGFO45PX8kzFgkG1aOWnaq83/mnXtY6MRGhVmJ9n3i219jzma\",\"expiry\":1669897082}}', `users`.`updated_at` = '2022-11-17 21:18:02.444597' WHERE `users`.`id` = 3[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1[0m
+Completed 200 OK in 360ms (Views: 0.1ms | ActiveRecord: 2.9ms | Allocations: 9124)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:22:16 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test01@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 286ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 5383)
+
+
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 3[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started GET "/api/v1/auth" for ::1 at 2022-11-17 21:22:46 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/auth"):
+  
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:23:16 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test01@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test01@example.com', '$2a$12$zdmk3C4K42YIM03A7MJRHubsPTxZ3rIB9kjoK9DQX4QN2Q.8DChte', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test01@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:23:16.696804', '2022-11-17 21:23:16.696804')[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"oFSxp_UCWJFqBG1Q6InTMA\":{\"token\":\"$2a$10$luZosH.ko2juvPUYebbIZOxnTDR/RmMfT4h0DWhJr0bpxOclfPxMO\",\"expiry\":1669897396}}', `users`.`updated_at` = '2022-11-17 21:23:16.761266' WHERE `users`.`id` = 4[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 4 LIMIT 1[0m
+Completed 200 OK in 339ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 9492)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:25:34 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test01@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 286ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 5172)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:25:42 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test0\b2@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test02@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test02@example.com', '$2a$12$3dEzST2t5nEPEAhUD8UV.O/sOxDlpgspcQ4nNPbOQwCCmA5j3kLpe', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test02@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:25:42.511168', '2022-11-17 21:25:42.511168')[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"UhcSv3jgULkD1fHOHTd7SA\":{\"token\":\"$2a$10$y4W4Y9cdyR41/rMAUPWYoOlAIroWDvDnHagnEoWSlWQI3Urpsmoy.\",\"expiry\":1669897542}}', `users`.`updated_at` = '2022-11-17 21:25:42.576344' WHERE `users`.`id` = 5[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+Completed 200 OK in 335ms (Views: 0.1ms | ActiveRecord: 2.1ms | Allocations: 9117)
+
+
+
+NoMethodError - undefined method `downcase' for nil:NilClass
+        canonical = k.downcase.freeze
+                     ^^^^^^^^^:
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:26:46 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test0\b3@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test03@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test03@example.com', '$2a$12$UrR.QRBBTvwfRom4xpC.lODylymjFzd.0Ko6J2NhMrR07f/7PWKmq', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test03@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:26:46.452927', '2022-11-17 21:26:46.452927')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"BJNkDscpE67Klt8926SWxg\":{\"token\":\"$2a$10$5OzSN2.s0QHWthDSIax8SO/NZShEs9ymtvF9es5olAQA8a4xQ1QdK\",\"expiry\":1669897606}}', `users`.`updated_at` = '2022-11-17 21:26:46.517609' WHERE `users`.`id` = 6[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+Completed 200 OK in 394ms (Views: 0.1ms | ActiveRecord: 3.6ms | Allocations: 75152)
+
+
+Started POST "/api/v1//api/v1/auth/sign_in" for ::1 at 2022-11-17 21:30:14 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/api/v1/auth/sign_in"):
+  
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.5ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 4[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 5[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 6[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started POST "/api/v1//api/v1/auth" for ::1 at 2022-11-17 21:31:49 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/api/v1/auth"):
+  
+Started POST "/api/v1//api/v1/auth" for ::1 at 2022-11-17 21:32:44 +0900
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/api/v1/auth"):
+  
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:32:57 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = 'test01@example.com' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO `users` (`provider`, `uid`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `allow_password_change`, `remember_created_at`, `confirmation_token`, `confirmed_at`, `confirmation_sent_at`, `unconfirmed_email`, `name`, `nickname`, `image`, `email`, `tokens`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES ('email', 'test01@example.com', '$2a$12$5lNa2V2ACiaSrYJ9KjSDlOEKX10VxP0EFwmNqJFY/KJkKSgQO3NAu', NULL, NULL, FALSE, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'test01@example.com', NULL, 0, NULL, NULL, NULL, NULL, '2022-11-17 21:32:57.657422', '2022-11-17 21:32:57.657422')[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"plhT6kzBgFqoOgQDqlRD-g\":{\"token\":\"$2a$10$dTBIkiRLhfyAljzFabyc.uuOyuI4RehYyAj1Rjrw9Di3vXGqlZ0gu\",\"expiry\":1669897977}}', `users`.`updated_at` = '2022-11-17 21:32:57.726129' WHERE `users`.`id` = 7[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+Completed 200 OK in 361ms (Views: 0.1ms | ActiveRecord: 4.4ms | Allocations: 16748)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-11-17 21:33:39 +0900
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"test01@example.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test01@example.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[37mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1 FOR UPDATE[0m
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE `users` SET `users`.`tokens` = '{\"plhT6kzBgFqoOgQDqlRD-g\":{\"token\":\"$2a$10$dTBIkiRLhfyAljzFabyc.uuOyuI4RehYyAj1Rjrw9Di3vXGqlZ0gu\",\"expiry\":1669897977},\"kDb4052xVlDJMsDdi1kYsg\":{\"token\":\"$2a$10$cDdB5qTzXWxa1co9RAhCVuavf0hBbnXxJB4nYehTmakmNL6mtLIBi\",\"expiry\":1669898020}}', `users`.`updated_at` = '2022-11-17 21:33:40.345425' WHERE `users`.`id` = 7[0m
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (0.2ms)[0m  [1m[33mUPDATE `users` SET `users`.`sign_in_count` = 1, `users`.`current_sign_in_at` = '2022-11-17 21:33:40.349171', `users`.`last_sign_in_at` = '2022-11-17 21:33:40.349171', `users`.`current_sign_in_ip` = '::1', `users`.`last_sign_in_ip` = '::1', `users`.`updated_at` = '2022-11-17 21:33:40.349377' WHERE `users`.`id` = 7[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+Completed 200 OK in 355ms (Views: 0.1ms | ActiveRecord: 2.6ms | Allocations: 11844)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-11-17 21:35:11 +0900
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"test02@example.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = 'test02@example.com' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 2148)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-11-17 21:35:20 +0900
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = '' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 3ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 1237)
+
+
+Started POST "/api/v1/auth/sign_in" for ::1 at 2022-11-17 21:35:23 +0900
+Processing by DeviseTokenAuth::SessionsController#create as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE (BINARY email = '' AND provider= 'email') ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.6ms | Allocations: 1249)
+
+
+Started POST "/api/v1/auth" for ::1 at 2022-11-17 21:35:35 +0900
+Processing by Api::V1::Auth::RegistrationsController#create as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = '' AND `users`.`provider` = 'email' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 20ms (Views: 0.2ms | ActiveRecord: 4.0ms | Allocations: 12702)
+
+
+  [1m[36mActiveRecord::InternalMetadata Pluck (1.6ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Hoge (20221117095432)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Hoge (20221117095432)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to Hoge (20221117095432)
+  [1m[36mActiveRecord::SchemaMigration Delete All (1.2ms)[0m  [1m[31mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20221117095432'[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (13.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS `api_development`[0m
+  [1m[35m (4.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS `api_test`[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE `api_development` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE DATABASE `api_test` DEFAULT CHARACTER SET `utf8mb4`[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL PRIMARY KEY)[0m
+  [1m[35m (4.5ms)[0m  [1m[35mCREATE TABLE `ar_internal_metadata` (`key` varchar(255) NOT NULL PRIMARY KEY, `value` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.5ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateUsers (20221119095322)
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE `users` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `sub` varchar(255), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221119095322')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO `ar_internal_metadata` (`key`, `value`, `created_at`, `updated_at`) VALUES ('environment', 'development', '2022-11-19 18:57:46.794761', '2022-11-19 18:57:46.794761')[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('5878493172211724820', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreatePosts (20221119113929)
+  [1m[35m (9.3ms)[0m  [1m[35mCREATE TABLE `posts` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `user_id` bigint NOT NULL, `title` varchar(255), `caption` text, `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL, INDEX `index_posts_on_user_id` (`user_id`), CONSTRAINT `fk_rails_5b5ddfd518`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221119113929')[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT RELEASE_LOCK('5878493172211724820')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Pluck (0.2ms)[0m  [1m[34mSELECT `ar_internal_metadata`.`value` FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'schema_sha1' LIMIT 1[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 20:43:54 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 20:45:44 +0900
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 20:47:52 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 20:55:00 +0900
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-19 20:55:36 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 21:02:39 +0900
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 21:08:23 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+
+ArgumentError - Before process_action callback :authorize_request has not been defined:
+  app/controllers/api/v1/posts_controller.rb:2:in `<class:PostsController>'
+  app/controllers/api/v1/posts_controller.rb:1:in `<main>'
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 21:09:52 +0900
+Processing by Api::V1::PostsController#index as */*
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 0.3ms | Allocations: 5416)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-19 21:09:58 +0900
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 23ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 10141)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-19 21:10:00 +0900
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms | Allocations: 797)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-19 21:11:15 +0900
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"title"=>"タイトル１", "caption"=>"説明１"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 921)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-19 21:11:41 +0900
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"title"=>"タイトル１", "caption"=>"説明１"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'td8rezjpH46qJ31O7ybAifB7ZAiChpM0@clients' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO `users` (`sub`, `created_at`, `updated_at`) VALUES ('td8rezjpH46qJ31O7ybAifB7ZAiChpM0@clients', '2022-11-19 21:11:42.036004', '2022-11-19 21:11:42.036004')[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (1, 'タイトル１', '説明１', '2022-11-19 21:11:42.097133', '2022-11-19 21:11:42.097133')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 393ms (Views: 0.2ms | ActiveRecord: 8.8ms | Allocations: 36253)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-19 21:13:23 +0900
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"title"=>"タイトル１", "caption"=>"説明１"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 895)
+
+
+Started GET "/api/v1/posts" for 127.0.0.1 at 2022-11-19 21:13:33 +0900
+Processing by Api::V1::PostsController#index as */*
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 825)
+
+
+Started POST "/api/v1/posts" for 127.0.0.1 at 2022-11-19 21:14:21 +0900
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'td8rezjpH46qJ31O7ybAifB7ZAiChpM0@clients' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+[31mUnpermitted parameter: :post. Context: { controller: Api::V1::PostsController, action: create, request: #<ActionDispatch::Request:0x0000000105c117a8>, params: {"title"=>"タイトル2", "caption"=>"説明2", "controller"=>"api/v1/posts", "action"=>"create", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.8ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (1, 'タイトル2', '説明2', '2022-11-19 21:14:21.676170', '2022-11-19 21:14:21.676170')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 269ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 4215)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-19 21:15:01 +0900
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"title"=>"タイトル１", "caption"=>"説明１"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms | Allocations: 913)
+
+
+  [1m[36mPost Load (0.8ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 15:00:12 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"title"=>"タイトル１", "caption"=>"説明１"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 18ms (Views: 6.1ms | ActiveRecord: 5.3ms | Allocations: 9851)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 15:00:42 +0900
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"title"=>"タイトル3", "caption"=>"説明3"}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 22ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 15246)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 15:00:56 +0900
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"title"=>"タイトル3", "caption"=>"説明3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'BeaJVrAwO1fW92cLeYJjH4jO1YfHEcGG@clients' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`sub`, `created_at`, `updated_at`) VALUES ('BeaJVrAwO1fW92cLeYJjH4jO1YfHEcGG@clients', '2022-11-20 15:00:56.760714', '2022-11-20 15:00:56.760714')[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.6ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (2, 'タイトル3', '説明3', '2022-11-20 15:00:56.777691', '2022-11-20 15:00:56.777691')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 217ms (Views: 0.2ms | ActiveRecord: 7.4ms | Allocations: 18261)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 15:01:00 +0900
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"title"=>"タイトル3", "caption"=>"説明3"}
+  [1m[36mPost Load (1.0ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 1.0ms | Allocations: 1075)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 1[0m
+  [1m[36mPost Destroy (0.5ms)[0m  [1m[31mDELETE FROM `posts` WHERE `posts`.`id` = 1[0m
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM `posts` WHERE `posts`.`id` = 2[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 1[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPost Load (0.3ms)[0m  [1m[34mSELECT `posts`.* FROM `posts` WHERE `posts`.`user_id` = 2[0m
+  [1m[36mPost Destroy (0.2ms)[0m  [1m[31mDELETE FROM `posts` WHERE `posts`.`id` = 3[0m
+  [1m[36mUser Destroy (0.1ms)[0m  [1m[31mDELETE FROM `users` WHERE `users`.`id` = 2[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 22:35:02 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"title"=>"タイトル3", "caption"=>"説明3"}
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 7ms (Views: 1.1ms | ActiveRecord: 0.7ms | Allocations: 5032)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 22:35:08 +0900
+Processing by Api::V1::PostsController#index as */*
+  Parameters: {"title"=>"タイトル3", "caption"=>"説明3"}
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.6ms | Allocations: 838)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` ASC LIMIT 1[0m
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 22:56:43 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::PostsController#create as */*
+  Parameters: {"title"=>"タイトル3", "caption"=>"説明3"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'BeaJVrAwO1fW92cLeYJjH4jO1YfHEcGG@clients' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO `users` (`sub`, `created_at`, `updated_at`) VALUES ('BeaJVrAwO1fW92cLeYJjH4jO1YfHEcGG@clients', '2022-11-20 22:56:43.975283', '2022-11-20 22:56:43.975283')[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.7ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (3, 'タイトル3', '説明3', '2022-11-20 22:56:44.013730', '2022-11-20 22:56:44.013730')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 286ms (Views: 0.6ms | ActiveRecord: 21.5ms | Allocations: 30976)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users`[0m
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:35:47 +0900
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 13ms (Views: 4.0ms | ActiveRecord: 3.5ms | Allocations: 9744)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:37:00 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'google-oauth2|102377601483282272084' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO `users` (`sub`, `created_at`, `updated_at`) VALUES ('google-oauth2|102377601483282272084', '2022-11-20 23:37:00.517973', '2022-11-20 23:37:00.517973')[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+Completed 400 Bad Request in 182ms (ActiveRecord: 6.7ms | Allocations: 28744)
+
+
+
+ActionController::ParameterMissing - param is missing or the value is empty: poat
+Did you mean?  post:
+  app/controllers/api/v1/posts_controller.rb:32:in `post_params'
+  app/controllers/api/v1/posts_controller.rb:15:in `create'
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:37:53 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'google-oauth2|102377601483282272084' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.4ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (4, 'タイトル2', '説明2', '2022-11-20 23:37:53.864219', '2022-11-20 23:37:53.864219')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 141ms (Views: 0.3ms | ActiveRecord: 8.6ms | Allocations: 11430)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:37:58 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1029)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:38:00 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'google-oauth2|102377601483282272084' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.5ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (4, 'タイトル2', '説明2', '2022-11-20 23:38:00.499719', '2022-11-20 23:38:00.499719')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 89ms (Views: 0.5ms | ActiveRecord: 2.4ms | Allocations: 4224)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:01 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.5ms | Allocations: 1009)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:38:05 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`sub` = 'google-oauth2|102377601483282272084' LIMIT 1[0m
+  ↳ app/models/user.rb:5:in `from_token_payload'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mPost Create (0.9ms)[0m  [1m[32mINSERT INTO `posts` (`user_id`, `title`, `caption`, `created_at`, `updated_at`) VALUES (4, 'タイトル2', '説明2', '2022-11-20 23:38:05.772869', '2022-11-20 23:38:05.772869')[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:17:in `create'
+Completed 200 OK in 156ms (Views: 1.0ms | ActiveRecord: 2.1ms | Allocations: 3987)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:10 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 1.2ms | Allocations: 1110)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:38:40 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 2ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 948)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:42 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.5ms | Allocations: 1110)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:38:45 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 916)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:46 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.6ms | Allocations: 1110)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:47 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.5ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.5ms | Allocations: 1110)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:47 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.7ms | Allocations: 1110)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:38:47 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.7ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.7ms | Allocations: 1110)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:38:59 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 916)
+
+
+Started GET "/api/v1/posts" for ::1 at 2022-11-20 23:39:20 +0900
+Processing by Api::V1::PostsController#index as HTML
+  [1m[36mPost Load (0.6ms)[0m  [1m[34mSELECT `posts`.* FROM `posts`[0m
+  ↳ app/controllers/api/v1/posts_controller.rb:6:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.6ms | Allocations: 1110)
+
+
+Started POST "/api/v1/posts" for ::1 at 2022-11-20 23:39:29 +0900
+Processing by Api::V1::PostsController#create as HTML
+  Parameters: {"title"=>"タイトル2", "caption"=>"説明2", "post"=>{"title"=>"タイトル2", "caption"=>"説明2"}}
+Filter chain halted as :authorize_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 915)
+
+
+Started GET "/" for ::1 at 2022-11-21 00:03:50 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/ptr/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.8ms | Allocations: 521)
+Completed 200 OK in 5ms (Views: 2.3ms | Allocations: 3498)
+
+
