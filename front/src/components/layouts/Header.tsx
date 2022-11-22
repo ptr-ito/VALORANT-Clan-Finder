@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -7,8 +7,9 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-
 import { css } from "@emotion/react";
+
+import HeaderButton from "./HeaderButton";
 
 const Header = () => {
   return (
@@ -36,18 +37,7 @@ const Header = () => {
           >
             VALORANT Finder
           </Typography>
-          <Button component={Link} to="/login" color="inherit">
-            ログイン
-          </Button>
-          <Button
-            Button
-            component={Link}
-            to="/register"
-            color="inherit"
-            sx={"background-color: #ff4755"}
-          >
-            新規登録
-          </Button>
+          <HeaderButton />
         </Toolbar>
       </AppBar>
     </Box>
