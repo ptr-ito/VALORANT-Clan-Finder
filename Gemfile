@@ -31,7 +31,7 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-gem "rack-cors"
+gem 'rack-cors'
 
 gem 'dotenv-rails'
 gem 'jwt'
@@ -43,10 +43,10 @@ gem 'enum_help'
 group :development, :test do
   gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem "rspec-rails"
-  gem "factory_bot_rails"
+  gem 'rspec-rails'
 end
 
 group :development do
