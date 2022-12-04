@@ -3,6 +3,6 @@ test:
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: ptr2839
+  password:
   host: 127.0.0.1
   database: github_actions_for_rails_test
