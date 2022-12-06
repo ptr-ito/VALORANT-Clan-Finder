@@ -1,5 +1,6 @@
-class Api::V1::PostsController < BaseController
-  skip_before_action :authorize_request, only: %i[index show]
+class Api::V1::PostsController < ApplicationController
+  include Secured
+  skip_before_action :authorize_request!, only: %i[index show]
 
   def index
     posts = Post.all
