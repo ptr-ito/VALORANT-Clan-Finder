@@ -2,7 +2,7 @@ module Secured
   extend ActiveSupport::Concern
 
   included do
-    before_action :authenticate_request!
+    before_action :authorize_request!
   end
 
   private
