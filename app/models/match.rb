@@ -27,4 +27,6 @@ class Match < ApplicationRecord
   belongs_to_active_hash :mode
 
   belongs_to :user
+
+  enum :status, { published: 0, closed: 1}
 end
