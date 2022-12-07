@@ -6,7 +6,7 @@ module CreateUuid
   end
 
   def fill_uuid
-    self.uuid = loop do
+    self.id = loop do
       uuid = SecureRandom.uuid
       break uuid unless self.class.exists?(id: uuid)
     end
