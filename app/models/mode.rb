@@ -1,4 +1,7 @@
-class Mode < ApplicationRecord
+class Mode < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :matches
+
   self.data = [
     { id: 1, name: '---' },
     { id: 2, name: 'コンペティティブ' },
