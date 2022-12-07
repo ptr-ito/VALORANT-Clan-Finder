@@ -22,5 +22,9 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Match < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :rank
+  belongs_to_active_hash :mode
+
   belongs_to :user
 end
