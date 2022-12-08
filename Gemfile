@@ -42,6 +42,8 @@ gem 'enum_help'
 
 gem 'active_hash'
 
+gem 'jsonapi-serializer'
+
 group :development, :test do
   gem 'annotate'
   gem 'bullet'
