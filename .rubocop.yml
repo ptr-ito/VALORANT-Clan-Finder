@@ -64,3 +64,13 @@ Metrics/BlockLength:
     - "config/routes.rb"
     - "spec/**/*"
     - "lib/tasks/auto_annotate_models.rake"
+
+# 複数行の最後にカンマを付けることを許可
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma

@@ -23,8 +23,8 @@ class JsonWebToken
         [
           k['kid'],
           OpenSSL::X509::Certificate.new(
-            Base64.decode64(k['x5c'].first)
-          ).public_key
+            Base64.decode64(k['x5c'].first),
+          ).public_key,
         ]
       end
     ]
