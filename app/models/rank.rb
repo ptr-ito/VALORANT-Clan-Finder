@@ -28,6 +28,6 @@ class Rank < ActiveHash::Base
     { id: 23, name: 'イモータル1' },
     { id: 24, name: 'イモータル2' },
     { id: 25, name: 'イモータル3' },
-    { id: 26, name: 'レディアント' }
+    { id: 26, name: 'レディアント' },
   ]
 end
