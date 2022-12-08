@@ -10,14 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_19_113929) do
-  create_table "posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_082819) do
+  create_table "matches", id: { type: :string, limit: 36, comment: "プライマリキー" }, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "body"
+    t.integer "status", limit: 1, default: 0, null: false
     t.bigint "user_id", null: false
-    t.string "title"
-    t.text "caption"
+    t.integer "rank_id", null: false
+    t.integer "mode_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_posts_on_user_id"
+    t.index ["id"], name: "index_matches_on_id"
+    t.index ["user_id"], name: "index_matches_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -26,5 +30,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_19_113929) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "posts", "users"
+  add_foreign_key "matches", "users"
 end
