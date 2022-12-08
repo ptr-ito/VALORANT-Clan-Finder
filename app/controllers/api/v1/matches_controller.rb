@@ -6,7 +6,7 @@ class Api::V1::MatchesController < ApplicationController
   end
 
   def show
-    matche = Match.find_by!(id: params[:id])
+    match = Match.find_by!(id: params[:id])
     render_json = MatchListSerializer.new(match).serializable_hash.to_json
     render json: render_json, status: :ok
   end
