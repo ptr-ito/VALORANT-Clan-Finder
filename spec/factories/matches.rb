@@ -2,8 +2,8 @@ FactoryBot.define do
   factory :match do
     user
 
-    sequence(:title) { |n| "test-title-#{n}" }
-    sequence(:body) { |n| "test-body-#{n}" }
+    sequence(:title, 'match-title-1')
+    sequence(:body, 'match-body-1')
     status { :published }
     rank { Rank.all.sample }
     mode { Mode.all.sample }
