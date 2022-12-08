@@ -40,7 +40,10 @@ gem 'rails-i18n'
 
 gem 'enum_help'
 
+gem 'active_hash'
+
 group :development, :test do
+  gem 'annotate'
   gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
