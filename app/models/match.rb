@@ -28,7 +28,7 @@ class Match < ApplicationRecord
 
   belongs_to :user
 
-  enum :status, { published: 0, closed: 1}
+  enum :status, { published: 0, closed: 1 }
 
   validates :title, presence: true
   validates :body, presence: true

@@ -1,6 +1,6 @@
 class Rank < ActiveHash::Base
   include ActiveHash::Associations
-  has_many :matches
+  has_many :matches, dependent: :destroy
 
   self.data = [
     { id: 1, name: '---' },

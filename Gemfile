@@ -43,13 +43,13 @@ gem 'enum_help'
 gem 'active_hash'
 
 group :development, :test do
+  gem 'annotate'
   gem 'bullet'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'annotate'
 end
 
 group :development do
