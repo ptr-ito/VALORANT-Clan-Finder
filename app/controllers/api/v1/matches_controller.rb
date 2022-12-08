@@ -1,5 +1,5 @@
 class Api::V1::MatchesController < ApplicationController
-  def indx
+  def inedx
     matches = Match.all
     render_json = MatchListSerializer.new(matches).serializable_hash.to_json
     render json: render_json, status: :ok
