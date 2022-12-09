@@ -5,11 +5,12 @@ class CreateMatches < ActiveRecord::Migration[7.0]
       t.string :title, null: false
       t.text :body, nill: false
       t.integer :status, default: 0, null: false, limit: 1
-      t.references :user, null: false, foreign_key: true
-      t.integer :rank_id
-      t.integer :mode_id
+      t.references :user, type: :string, null: false, foreign_key: true
+      t.integer :rank_id, null: false
+      t.integer :mode_id, null: false
 
       t.timestamps
     end
   end
 end
+
