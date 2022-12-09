@@ -4,13 +4,13 @@
 #
 #  id(プライマリキー) :string(36)       not null, primary key
 #  body               :text(65535)
-#  status             :integer          default(0), not null
+#  status             :integer          default("published"), not null
 #  title              :string(255)      not null
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #  mode_id            :integer          not null
 #  rank_id            :integer          not null
-#  user_id            :bigint           not null
+#  user_id            :string(255)      not null
 #
 # Indexes
 #

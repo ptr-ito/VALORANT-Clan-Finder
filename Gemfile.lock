@@ -118,6 +118,8 @@ GEM
     irb (1.4.2)
       reline (>= 0.3.0)
     json (2.6.2)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     jwt (2.5.0)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -287,6 +289,7 @@ DEPENDENCIES
   dotenv-rails
   enum_help
   factory_bot_rails
+  jsonapi-serializer
   jwt
   listen
   mysql2 (~> 0.5)
