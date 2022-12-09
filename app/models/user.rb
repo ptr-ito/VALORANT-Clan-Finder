@@ -2,10 +2,15 @@
 #
 # Table name: users
 #
-#  id         :bigint           not null, primary key
-#  sub        :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id(プライマリキー) :string(36)       not null, primary key
+#  sub                :string(255)      not null
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_id   (id)
+#  index_users_on_sub  (sub)
 #
 class User < ApplicationRecord
   has_many :mathes, dependent: :destroy
