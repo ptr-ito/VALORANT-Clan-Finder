@@ -66,5 +66,4 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
-  gem 'bullet'
 end
