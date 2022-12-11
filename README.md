@@ -1,3 +1,5 @@
+[![Run rspec, rubocop](https://github.com/ptr-ito/VALORANT-Finder-Backend/actions/workflows/github-action.yml/badge.svg)](https://github.com/ptr-ito/VALORANT-Finder-Backend/actions/workflows/github-action.yml)
+
 「VALORANT Finder」のバックエンドのリポジトリになります。
 
 フロントエンドのリポジトリは[こちら](https://github.com/ptr-ito/VALORANT-Finder-Frontend)
