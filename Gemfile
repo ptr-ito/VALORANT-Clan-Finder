@@ -45,8 +45,11 @@ gem 'active_hash'
 
 gem 'jsonapi-serializer'
 
+# 定数管理
+gem 'config'
 
-# 認証機能
+
+# 認証機能(devise)
 gem 'devise'
 gem 'devise_token_auth'
 gem 'devise-i18n'
