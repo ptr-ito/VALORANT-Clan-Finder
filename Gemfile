@@ -34,6 +34,7 @@ gem 'bootsnap', require: false
 gem 'rack-cors'
 
 gem 'dotenv-rails'
+
 gem 'jwt'
 
 gem 'rails-i18n'
@@ -43,6 +44,14 @@ gem 'enum_help'
 gem 'active_hash'
 
 gem 'jsonapi-serializer'
+
+# 定数管理
+gem 'config'
+
+# 認証機能(devise)
+gem 'devise'
+gem 'devise-i18n'
+gem 'devise_token_auth'
 
 group :development, :test do
   gem 'annotate'
@@ -57,6 +66,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'letter_opener_web'
   gem 'listen'
   gem 'rails_best_practices'
   gem 'rubocop', require: false
