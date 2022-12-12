@@ -53,6 +53,10 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise_token_auth'
 
+# deviseのメール送信フォームで使用
+gem 'haml-rails'
+gem 'erb2haml'
+
 group :development, :test do
   gem 'annotate'
   gem 'bullet'
