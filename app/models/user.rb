@@ -41,7 +41,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :confirmable
   include DeviseTokenAuth::Concerns::User
 
-  mount_uploader :avatar, AvatarUploader
+  mount_uploader :image, ImageUploader
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :rank
