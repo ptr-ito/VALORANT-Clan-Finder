@@ -25,6 +25,8 @@
 #  unconfirmed_email      :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  agent_id               :integer
+#  rank_id                :integer
 #
 # Indexes
 #
