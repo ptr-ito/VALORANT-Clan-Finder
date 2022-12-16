@@ -43,6 +43,10 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
 
   mount_uploader :avatar, AvatarUploader
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :rank_id
+  belongs_to_active_hash :agent_id
 end
 
 # :validatable,
