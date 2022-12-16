@@ -1,7 +1,21 @@
 class ProfilesController < ApplicationController
-  private
+  def show; end
+
+  def edit; end
+
+  def update
+    if user.update(user_params)
+      render json: user
+    else
+      render json: user.errors
+    end
+  end
 
   def set_user
-    
+    user = User.find(current_user.id)
+  end
+
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :self_introduction, :rank_id, :agent_id)
   end
 end
