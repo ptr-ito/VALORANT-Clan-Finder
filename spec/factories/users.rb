@@ -22,8 +22,8 @@
 #  unconfirmed_email      :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  agent_id               :integer
-#  rank_id                :integer
+#  agent_id               :integer          default(1)
+#  rank_id                :integer          default(1)
 #
 # Indexes
 #
@@ -34,10 +34,5 @@
 #
 FactoryBot.define do
   factory :user do
-    sequence(:name, "username_1")
-    sequence(:email) { |n| "user_#{n}@example.com" }
-    password { "password" }
-    password_confirmation { "password" }
-    confirm_success_url { "#{FRONT_SITE_URL}sign_in" }
   end
 end
