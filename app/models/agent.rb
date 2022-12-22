@@ -3,7 +3,7 @@ class Agent < ActiveHash::Base
   has_many :users, dependent: :destroy
 
   self.data = [
-    { id: 1, name: '---' },
+    { id: 1, name: '' },
     { id: 2, name: 'ジェット' },
     { id: 3, name: 'フェニックス' },
     { id: 4, name: 'ネオン' },
