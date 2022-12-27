@@ -18,11 +18,14 @@
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
+#  self_introduction      :text(65535)
 #  tokens                 :text(65535)
 #  uid                    :string(255)      default(""), not null
 #  unconfirmed_email      :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  agent_id               :integer          default(1)
+#  rank_id                :integer          default(1)
 #
 # Indexes
 #
@@ -34,7 +37,23 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
+  devise :database_authenticatable, :registerable, :validatable,
+         :recoverable, :rememberable, :confirmable
   include DeviseTokenAuth::Concerns::User
+
+  attr_accessor :redirect_url
+
+  mount_uploader :image, ImageUploader
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :rank
+  belongs_to_active_hash :agent
+
+  # def update_email
+  #   self.email = unconfirmed_email
+  #   self.unconfirmed_email = nil
+  #   self.bounce_email = false
+  #   skip_reconfirmation!
+  #   save
+  # end
 end

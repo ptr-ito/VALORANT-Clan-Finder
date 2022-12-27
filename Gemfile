@@ -53,6 +53,9 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'devise_token_auth'
 
+# 画像機能
+gem 'carrierwave'
+
 group :development, :test do
   gem 'annotate'
   gem 'bullet'
@@ -66,6 +69,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'foreman'
   gem 'letter_opener_web'
   gem 'listen'
   gem 'rails_best_practices'

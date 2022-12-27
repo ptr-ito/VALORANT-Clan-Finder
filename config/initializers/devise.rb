@@ -129,7 +129,7 @@ Devise.setup do |config|
   # config.pepper = '16503e568cbf19b503d416eda3396f6dca53e5d75af0cec39a5d5f8a79aa8becc69e7b53050f1a49094af37f4fb527367e2a1d01119d10a65bce193de5592d13'
 
   # Send a notification to the original email when the user's email is changed.
-  # config.send_email_changed_notification = false
+  # config.send_email_changed_notification = true
 
   # Send a notification email when the user's password is changed.
   # config.send_password_change_notification = false
@@ -151,13 +151,13 @@ Devise.setup do |config|
   # their account can't be confirmed with the token any more.
   # Default is nil, meaning there is no restriction on how long a user can take
   # before confirming their account.
-  config.confirm_within = 1.days # 認証メールの期限を24時間に設定
+  config.confirm_within = 1.day # 認証メールの期限を24時間に設定
 
   # If true, requires any email changes to be confirmed (exactly the same way as
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
