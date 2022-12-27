@@ -28,10 +28,10 @@ class MatchPost < ApplicationRecord
   belongs_to_active_hash :mood
   belongs_to_active_hash :mode
 
-  validate :content, presence: true, length: { maximum: 140 }
-  validate :rank_id, presence: true
-  validate :mode_id, presence: true
-  validate :mood_id, presence: true
+  validates :content, presence: true, length: { maximum: 140 }
+  validates :rank_id, presence: true
+  validates :mode_id, presence: true
+  validates :mood_id, presence: true
 
   enum :status, { published: 0, closed: 1, trashed: 2,}
 end

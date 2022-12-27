@@ -1,4 +1,4 @@
-class Rank < ActiveHash::Base
+class Mood < ActiveHash::Base
   include ActiveHash::Associations
   has_many :match_posts, dependent: :destroy
 
