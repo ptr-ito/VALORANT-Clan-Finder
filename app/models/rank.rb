@@ -1,6 +1,7 @@
 class Rank < ActiveHash::Base
   include ActiveHash::Associations
   has_many :users, dependent: :destroy
+  has_many :match_posts, dependent: :destroy
 
   self.data = [
     { id: 1, name: '' },

@@ -35,8 +35,7 @@
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many: match_posts, dependent: :destroy
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable
   include DeviseTokenAuth::Concerns::User
