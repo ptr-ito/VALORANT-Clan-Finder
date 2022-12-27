@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_20_102910) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_27_111618) do
+  create_table "match_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.text "content", null: false
+    t.integer "rank_id", default: 1, null: false
+    t.integer "mode_id", default: 1, null: false
+    t.integer "mood_id", default: 1, null: false
+    t.integer "status", limit: 1, default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_match_posts_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -39,4 +51,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_20_102910) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "match_posts", "users"
 end
