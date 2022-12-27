@@ -27,4 +27,9 @@ class MatchPost < ApplicationRecord
   belongs_to_active_hash :rank
   belongs_to_active_hash :mood
   belongs_to_active_hash :mode
+
+  validate :content, presence: true, length: { maximum: 140 }
+  validate :rank_id, presence: true
+  validate :mode_id, presence: true
+  validate :mood_id, presence: true
 end
