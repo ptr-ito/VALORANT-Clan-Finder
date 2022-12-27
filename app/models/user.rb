@@ -37,15 +37,23 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable
   include DeviseTokenAuth::Concerns::User
+
+  attr_accessor :redirect_url
 
   mount_uploader :image, ImageUploader
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :rank
   belongs_to_active_hash :agent
-end
 
-# :validatable,
+  # def update_email
+  #   self.email = unconfirmed_email
+  #   self.unconfirmed_email = nil
+  #   self.bounce_email = false
+  #   skip_reconfirmation!
+  #   save
+  # end
+end

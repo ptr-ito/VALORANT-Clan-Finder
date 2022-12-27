@@ -69,6 +69,7 @@ end
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'foreman'
   gem 'letter_opener_web'
   gem 'listen'
   gem 'rails_best_practices'
@@ -79,5 +80,4 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
   gem 'web-console'
-  gem 'foreman'
 end
