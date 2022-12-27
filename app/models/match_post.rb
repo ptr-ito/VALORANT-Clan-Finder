@@ -32,4 +32,6 @@ class MatchPost < ApplicationRecord
   validate :rank_id, presence: true
   validate :mode_id, presence: true
   validate :mood_id, presence: true
+
+  enum :status, { published: 0, closed: 1, trashed: 2,}
 end
