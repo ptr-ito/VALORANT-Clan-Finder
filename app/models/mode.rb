@@ -5,7 +5,7 @@ class Mode < ActiveHash::Base
   self.data = [
     { id: 1, name: 'コンペティティブ' },
     { id: 2, name: 'アンレート' },
-    { id: 2, name: 'カスタム' },
-    { id: 3, name: 'その他' },
+    { id: 3, name: 'カスタム' },
+    { id: 4, name: 'その他' },
   ]
 end
