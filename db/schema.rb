@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_27_111618) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_29_094907) do
   create_table "match_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "rank_id", default: 1, null: false
-    t.integer "mode_id", default: 1, null: false
-    t.integer "mood_id", default: 1, null: false
+    t.integer "rank", default: 1, null: false
+    t.integer "mode", default: 1, null: false
+    t.integer "mood", default: 1, null: false
     t.integer "status", limit: 1, default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
