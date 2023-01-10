@@ -33,5 +33,5 @@ class MatchPost < ApplicationRecord
   validates :mode_id, presence: true
   validates :mood_id, presence: true
 
-  enum :status, { published: 0, closed: 1}
+  enum :status, { published: 0, closed: 1 }
 end
