@@ -23,6 +23,7 @@ class MatchPost < ApplicationRecord
   belongs_to :user
   has_many :match_ranks, dependent: :destroy
   has_many :ranks, through: :match_ranks
+  has_many :match_post_comments, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   # belongs_to_active_hash :rank

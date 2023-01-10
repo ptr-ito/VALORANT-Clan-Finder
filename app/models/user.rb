@@ -36,6 +36,8 @@
 #
 class User < ApplicationRecord
   has_many :match_posts, dependent: :destroy
+  has_many :match_post_comments, dependent: :destroy
+
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable
   include DeviseTokenAuth::Concerns::User
@@ -45,14 +47,5 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :rank
   belongs_to_active_hash :agent
-
-  # def update_email
-  #   self.email = unconfirmed_email
-  #   self.unconfirmed_email = nil
-  #   self.bounce_email = false
-  #   skip_reconfirmation!
-  #   save
-  # end
 end
