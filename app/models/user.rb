@@ -45,7 +45,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :rank
+  # belongs_to_active_hash :rank
   belongs_to_active_hash :agent
 
   # def update_email
