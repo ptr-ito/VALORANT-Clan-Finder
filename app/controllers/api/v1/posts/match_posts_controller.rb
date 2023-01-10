@@ -39,7 +39,7 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
   def destroy
     match_post = current_api_v1_user.match_posts.find(params[:id])
     match_post.destroy!
-    match_posts = MatchPost.all.published.order(created_at: :desc)
+    match_post = MatchPost.all.published.order(created_at: :desc)
     json_string = MatchPostSerializer.new(match_post).serializable_hash.to_json
     render json: json_string, status: :ok
   end

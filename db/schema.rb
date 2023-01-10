@@ -10,17 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_29_094907) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_04_081935) do
   create_table "match_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content", null: false
-    t.integer "rank", default: 1, null: false
-    t.integer "mode", default: 1, null: false
-    t.integer "mood", default: 1, null: false
+    t.integer "mode_id", null: false
+    t.integer "mood_id", null: false
     t.integer "status", limit: 1, default: 0, null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_match_posts_on_user_id"
+  end
+
+  create_table "match_ranks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "match_post_id", null: false
+    t.bigint "rank_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_post_id"], name: "index_match_ranks_on_match_post_id"
+    t.index ["rank_id"], name: "index_match_ranks_on_rank_id"
+  end
+
+  create_table "ranks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -52,4 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_29_094907) do
   end
 
   add_foreign_key "match_posts", "users"
+  add_foreign_key "match_ranks", "match_posts"
+  add_foreign_key "match_ranks", "ranks"
 end

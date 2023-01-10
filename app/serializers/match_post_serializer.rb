@@ -25,7 +25,7 @@ class MatchPostSerializer
   attributes :id, :content, :status, :created_at, :user_id
 
   attribute :rank do |object|
-    object.ranks.map{ |v| v.name}
+    object.ranks.map(&:name)
   end
 
   attribute :mode do |object|
@@ -48,7 +48,7 @@ class MatchPostSerializer
     if object.created_at > 1.day.ago
       time_ago_in_words(object.created_at, include_seconds: true)
     else
-      object.created_at.strftime("%F")
+      object.created_at.strftime('%F')
     end
   end
 end
