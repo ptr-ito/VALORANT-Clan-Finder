@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       namespace :posts do
-        resources :match_posts, only: %i[index show create update destroy]
+        resources :match_posts, only: %i[index show create update destroy] do
+          resources :match_post_comments, only: %i[create], shallow: true
+        end
+
       end
 
       mount_devise_token_auth_for 'User', at: 'auth', controllers: {
