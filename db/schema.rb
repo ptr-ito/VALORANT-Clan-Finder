@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_04_081935) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_10_054633) do
+  create_table "match_post_comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "content", null: false
+    t.bigint "user_id", null: false
+    t.bigint "match_post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["match_post_id"], name: "index_match_post_comments_on_match_post_id"
+    t.index ["user_id"], name: "index_match_post_comments_on_user_id"
+  end
+
   create_table "match_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "content", null: false
     t.integer "mode_id", null: false
@@ -65,6 +75,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_04_081935) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "match_post_comments", "match_posts"
+  add_foreign_key "match_post_comments", "users"
   add_foreign_key "match_posts", "users"
   add_foreign_key "match_ranks", "match_posts"
   add_foreign_key "match_ranks", "ranks"
