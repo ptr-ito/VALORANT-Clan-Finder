@@ -56,6 +56,9 @@ gem 'devise_token_auth'
 # 画像機能
 gem 'carrierwave'
 
+# マスターデータ用
+gem 'seed-fu'
+
 group :development, :test do
   gem 'annotate'
   gem 'bullet'
