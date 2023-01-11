@@ -1,4 +1,6 @@
 class Api::V1::Posts::MatchPostCommentsController < ApplicationController
+  before_action :authenticate_api_v1_user!, only: %i[create]
+
   def create
     comment = current_api_v1_user.match_post_comments.build(comment_params)
     if comment.save
