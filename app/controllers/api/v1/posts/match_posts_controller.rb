@@ -9,8 +9,6 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
 
   def show
     match_post = MatchPost.find(params[:id])
-    comment = MatchPost.new
-    comments = match_post.match_post_comments.includes(:user).order(created_at: :desc)
     render_json = MatchPostSerializer.new(match_post, options).serializable_hash.to_json
     render json: render_json, status: :ok
   end
