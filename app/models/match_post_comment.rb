@@ -25,8 +25,9 @@
 class MatchPostComment < ApplicationRecord
   belongs_to :user
   belongs_to :match_post
-  belongs_to :parent, class_name: "MatchPostComment", optional: true
-  has_many :replies, class_name: "MatchPostComment", foreign_key: :parent_id, dependent: :destroy
+  belongs_to :parent, class_name: 'MatchPostComment', optional: true
+  has_many   :replies, class_name: 'MatchPostComment', foreign_key: :parent_id, dependent: :destroy,
+                       inverse_of: 'match_post_comment'
 
   validates :content, presence: true, length: { maximum: 65_535 }
 end
