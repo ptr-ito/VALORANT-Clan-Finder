@@ -1,6 +1,13 @@
 class Api::V1::Posts::MatchPostCommentsController < ApplicationController
   before_action :authenticate_api_v1_user!, only: %i[create update destroy]
 
+  def index
+    match_post = MatchPost.find(params[:match_post_id])
+    comments = match_post.match_post_comments.all
+    json_string = MatchPostCommentSerializer.new(comments).serializable_hash.to_json
+    render json: json_string
+  end
+
   def create
     comment = current_api_v1_user.match_post_comments.build(comment_params)
     if comment.save
@@ -32,6 +39,6 @@ class Api::V1::Posts::MatchPostCommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:id, :content, :parent_id).merge(match_post_id: params[:match_post_id])
+    params.permit(:id, :content, :parent_id, :match_post_id)
   end
 end
