@@ -9,7 +9,7 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
 
   def show
     match_post = MatchPost.find(params[:id])
-    render_json = MatchPostSerializer.new(match_post, options).serializable_hash.to_json
+    render_json = MatchPostSerializer.new(match_post).serializable_hash.to_json
     render json: render_json, status: :ok
   end
 
@@ -45,11 +45,5 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
 
   def match_post_params
     params.permit(:content, :mode_id, :mood_id, :status, rank_ids: [])
-  end
-
-  def options
-    options = {}
-    options[:include] = [:match_post_comments]
-    options
   end
 end
