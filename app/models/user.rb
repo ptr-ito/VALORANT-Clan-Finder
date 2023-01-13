@@ -36,7 +36,7 @@
 #
 class User < ApplicationRecord
   has_many :match_posts, dependent: :destroy
-  has_many :match_post_comments, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable
