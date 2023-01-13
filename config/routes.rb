@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       namespace :posts do
         resources :match_posts, only: %i[index show create update destroy] do
-          resources :match_post_comments, only: %i[create update destroy], shallow: true
+          resources :match_post_comments, only: %i[index create update destroy], shallow: true
         end
       end
 
