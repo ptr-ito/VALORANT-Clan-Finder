@@ -30,5 +30,5 @@ class Comment < ApplicationRecord
   belongs_to :match_post
   validates :content, presence: true, length: { maximum: 65_535 }
 
-  has_many :replies, class_name: 'Comment', foreign_key: :root_id, dependent: :destroy
+  has_many :replies, class_name: 'Comment', foreign_key: :root_id, dependent: :destroy # rubocop:disable Rails/InverseOf
 end
