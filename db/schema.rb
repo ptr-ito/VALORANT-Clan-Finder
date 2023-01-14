@@ -10,17 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_122123) do
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "content", null: false
+    t.text "content", null: false
     t.bigint "user_id", null: false
     t.bigint "match_post_id", null: false
+    t.bigint "root_id", null: false
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id"
-    t.bigint "root_id"
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["match_post_id"], name: "index_comments_on_match_post_id"
-    t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["root_id"], name: "index_comments_on_root_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -43,6 +44,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
     t.datetime "updated_at", null: false
     t.index ["match_post_id"], name: "index_match_ranks_on_match_post_id"
     t.index ["rank_id"], name: "index_match_ranks_on_rank_id"
+  end
+
+  create_table "notifications", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "message", null: false
+    t.string "target_path", null: false
+    t.boolean "is_read", default: false
+    t.bigint "receiver_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_notifications_on_receiver_id"
   end
 
   create_table "ranks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -79,11 +90,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
-  add_foreign_key "comments", "comments", column: "parent_id"
   add_foreign_key "comments", "comments", column: "root_id"
   add_foreign_key "comments", "match_posts"
   add_foreign_key "comments", "users"
   add_foreign_key "match_posts", "users"
   add_foreign_key "match_ranks", "match_posts"
   add_foreign_key "match_ranks", "ranks"
+  add_foreign_key "notifications", "users", column: "receiver_id"
 end
