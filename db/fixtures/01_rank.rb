@@ -1,5 +1,5 @@
 Rank.seed(:id,
-    { id: 1, name: '-' },
+    { id: 1, name: '未選択' },
     { id: 2, name: 'ランクなし' },
     { id: 3, name: 'アイアン１' },
     { id: 4, name: 'アイアン２' },
