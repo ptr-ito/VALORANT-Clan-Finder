@@ -24,6 +24,10 @@ class MatchPostSerializer
   extend ActionView::Helpers::DateHelper
   attributes :id, :content, :status, :created_at, :user_id
 
+  attribute :uuid do |object|
+    object.user.uuid.to_s
+  end
+
   attribute :rank do |object|
     object.ranks.map(&:name)
   end

@@ -38,6 +38,10 @@ class CommentSerializer
     end
   end
 
+  attribute :uuid do |object|
+    object.user.uuid.to_s
+  end
+
   attribute :user_name do |object|
     object.user.name.to_s
   end
