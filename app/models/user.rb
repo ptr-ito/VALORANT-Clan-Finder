@@ -11,7 +11,9 @@
 #  confirmed_at           :datetime
 #  email                  :string(255)
 #  encrypted_password     :string(255)      default(""), not null
+#  highest_rank           :string(255)
 #  image                  :string(255)
+#  ingame_name            :string(255)
 #  name                   :string(255)
 #  nickname               :string(255)
 #  provider               :string(255)      default("email"), not null
@@ -19,24 +21,33 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
 #  self_introduction      :text(65535)
+#  started_on_val         :string(255)
 #  tokens                 :text(65535)
+#  twitter_name           :string(255)
 #  uid                    :string(255)      default(""), not null
 #  unconfirmed_email      :string(255)
+#  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  agent_id               :integer          default(1)
-#  rank_id                :integer          default(1)
+#  rank_id                :bigint           default(1)
 #
 # Indexes
 #
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_rank_id               (rank_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
+#
+# Foreign Keys
+#
+#  fk_rails_...  (rank_id => ranks.id)
 #
 class User < ApplicationRecord
   has_many :match_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  belongs_to :rank
 
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable

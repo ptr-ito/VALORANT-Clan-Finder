@@ -10,4 +10,5 @@
 class Rank < ApplicationRecord
   has_many :match_rank, dependent: :destroy
   has_many :match_posts, through: :match_ranks
+  has_many :users, dependent: :destroy
 end
