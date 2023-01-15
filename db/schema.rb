@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_120140) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_133531) do
+  create_table "agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content", null: false
     t.bigint "user_id", null: false
@@ -51,6 +57,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_120140) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "agent_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_user_agents_on_agent_id"
+    t.index ["user_id"], name: "index_user_agents_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -71,7 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_120140) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "self_introduction"
-    t.integer "agent_id", default: 1
     t.string "twitter_name"
     t.string "youtube_url"
     t.string "started_on_val"
@@ -92,5 +106,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_120140) do
   add_foreign_key "match_posts", "users"
   add_foreign_key "match_ranks", "match_posts"
   add_foreign_key "match_ranks", "ranks"
+  add_foreign_key "user_agents", "agents"
+  add_foreign_key "user_agents", "users"
   add_foreign_key "users", "ranks"
 end

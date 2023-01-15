@@ -29,7 +29,6 @@
 #  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  agent_id               :integer          default(1)
 #  rank_id                :bigint           default(1)
 #
 # Indexes
@@ -47,6 +46,8 @@
 class User < ApplicationRecord
   has_many :match_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :user_agents, dependent: :destroy
+  has_many :agents, through: :user_agents
   belongs_to :rank
 
   devise :database_authenticatable, :registerable, :validatable,
@@ -56,7 +57,4 @@ class User < ApplicationRecord
   attr_accessor :redirect_url
 
   mount_uploader :image, ImageUploader
-
-  extend ActiveHash::Associations::ActiveRecordExtensions
-  belongs_to_active_hash :agent
 end
