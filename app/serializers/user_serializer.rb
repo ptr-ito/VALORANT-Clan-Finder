@@ -9,7 +9,6 @@
 #  confirmed_at           :datetime
 #  email                  :string(255)
 #  encrypted_password     :string(255)      default(""), not null
-#  highest_rank           :string(255)
 #  image                  :string(255)
 #  ingame_name            :string(255)
 #  name                   :string(255)
@@ -24,9 +23,11 @@
 #  twitter_name           :string(255)
 #  uid                    :string(255)      default(""), not null
 #  unconfirmed_email      :string(255)
+#  uuid                   :string(255)      not null
 #  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  highest_rank_id        :integer          default(1), not null
 #  rank_id                :bigint           default(1)
 #
 # Indexes
@@ -36,6 +37,7 @@
 #  index_users_on_rank_id               (rank_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
+#  index_users_on_uuid                  (uuid) UNIQUE
 #
 # Foreign Keys
 #

@@ -25,6 +25,7 @@
 #  twitter_name           :string(255)
 #  uid                    :string(255)      default(""), not null
 #  unconfirmed_email      :string(255)
+#  uuid                   :string(255)      not null
 #  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -38,12 +39,14 @@
 #  index_users_on_rank_id               (rank_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
+#  index_users_on_uuid                  (uuid) UNIQUE
 #
 # Foreign Keys
 #
 #  fk_rails_...  (rank_id => ranks.id)
 #
 class User < ApplicationRecord
+  include CreateUuid
   has_many :match_posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :user_agents, dependent: :destroy

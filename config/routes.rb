@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       }
       namespace :user do
         resources :sessions, only: %i[index]
+        resources :users, only: %i[show]
       end
     end
   end
