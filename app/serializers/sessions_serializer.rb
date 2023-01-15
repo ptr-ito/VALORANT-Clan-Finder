@@ -5,4 +5,8 @@ class SessionsSerializer
   attribute :rank do |object|
     object.rank.name.to_s
   end
+
+  attribute :highest_rank do |object|
+    object.highest_rank.name.to_s
+  end
 end

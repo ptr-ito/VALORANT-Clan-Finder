@@ -11,7 +11,6 @@
 #  confirmed_at           :datetime
 #  email                  :string(255)
 #  encrypted_password     :string(255)      default(""), not null
-#  highest_rank           :string(255)
 #  image                  :string(255)
 #  ingame_name            :string(255)
 #  name                   :string(255)
@@ -29,6 +28,7 @@
 #  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  highest_rank_id        :integer          default(1), not null
 #  rank_id                :bigint           default(1)
 #
 # Indexes
@@ -57,4 +57,7 @@ class User < ApplicationRecord
   attr_accessor :redirect_url
 
   mount_uploader :image, ImageUploader
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to_active_hash :highest_rank
 end
