@@ -42,7 +42,19 @@
 #
 #  fk_rails_...  (rank_id => ranks.id)
 #
-FactoryBot.define do
-  factory :user do
+class UserSerializer
+  include JSONAPI::Serializer
+  attributes :id, :name, :image, :confirmed_at, :updated_at, :self_introduction, :twitter_name, :youtube_url, :started_on_val, :ingame_name
+
+  attribute :is_login do
+    true
   end
+
+  attribute :rank do |object|
+    object.rank.name.to_s
+  end
+
+  # attribute :agent do |object|
+  #   object.agent.name.to_s
+  # end
 end
