@@ -22,7 +22,11 @@
 class MatchPostSerializer
   include JSONAPI::Serializer
   extend ActionView::Helpers::DateHelper
-  attributes :id, :content, :status, :created_at, :user_id
+  attributes :id, :uuid, :content, :status, :created_at, :user_id
+
+  attribute :user_uuid do |object|
+    object.user.uuid.to_s
+  end
 
   attribute :rank do |object|
     object.ranks.map(&:name)

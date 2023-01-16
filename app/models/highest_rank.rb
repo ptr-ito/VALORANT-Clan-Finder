@@ -1,4 +1,8 @@
-Rank.seed(:id,
+class HighestRank < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :users, dependent: :destroys
+
+  self.data = [
     { id: 1, name: '未選択' },
     { id: 2, name: 'ランクなし' },
     { id: 3, name: 'アイアン１' },
@@ -25,4 +29,6 @@ Rank.seed(:id,
     { id: 24, name: 'イモータル1' },
     { id: 25, name: 'イモータル2' },
     { id: 26, name: 'イモータル3' },
-    { id: 27, name: 'レディアント' },)
+    { id: 27, name: 'レディアント' },
+  ]
+end
