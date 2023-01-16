@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: match_post_comments
+# Table name: comments
 #
 #  id            :bigint           not null, primary key
 #  content       :string(255)      not null
@@ -13,16 +13,16 @@
 #
 # Indexes
 #
-#  index_match_post_comments_on_match_post_id  (match_post_id)
-#  index_match_post_comments_on_parent_id      (parent_id)
-#  index_match_post_comments_on_root_id        (root_id)
-#  index_match_post_comments_on_user_id        (user_id)
+#  index_comments_on_match_post_id  (match_post_id)
+#  index_comments_on_parent_id      (parent_id)
+#  index_comments_on_root_id        (root_id)
+#  index_comments_on_user_id        (user_id)
 #
 # Foreign Keys
 #
 #  fk_rails_...  (match_post_id => match_posts.id)
-#  fk_rails_...  (parent_id => match_post_comments.id)
-#  fk_rails_...  (root_id => match_post_comments.id)
+#  fk_rails_...  (parent_id => comments.id)
+#  fk_rails_...  (root_id => comments.id)
 #  fk_rails_...  (user_id => users.id)
 #
 class CommentSerializer

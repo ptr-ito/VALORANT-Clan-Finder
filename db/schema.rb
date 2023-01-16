@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_002012) do
+  create_table "agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content", null: false
     t.bigint "user_id", null: false
@@ -51,6 +57,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "agent_id", default: 0, null: false
+    t.bigint "user_id", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agent_id"], name: "index_user_agents_on_agent_id"
+    t.index ["user_id"], name: "index_user_agents_on_user_id"
+  end
+
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "provider", default: "email", null: false
     t.string "uid", default: "", null: false
@@ -71,12 +86,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "self_introduction"
-    t.integer "rank_id", default: 1
-    t.integer "agent_id", default: 1
+    t.string "twitter_name"
+    t.string "youtube_url"
+    t.string "started_on_val"
+    t.string "ingame_name"
+    t.bigint "rank_id", default: 0
+    t.integer "highest_rank_id", default: 0, null: false
+    t.string "uuid", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["rank_id"], name: "index_users_on_rank_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
+    t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
   add_foreign_key "comments", "comments", column: "parent_id"
@@ -86,4 +108,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_13_171451) do
   add_foreign_key "match_posts", "users"
   add_foreign_key "match_ranks", "match_posts"
   add_foreign_key "match_ranks", "ranks"
+  add_foreign_key "user_agents", "agents"
+  add_foreign_key "user_agents", "users"
+  add_foreign_key "users", "ranks"
 end

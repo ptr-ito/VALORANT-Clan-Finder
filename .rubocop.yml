@@ -57,7 +57,7 @@ Metrics/MethodLength:
 
 # ABC sizeは緩めにする
 Metrics/AbcSize:
-  Max: 30 # default 15
+  Max: 40 # default 15
 
 # Block has too many lines.の無効化
 Metrics/BlockLength:

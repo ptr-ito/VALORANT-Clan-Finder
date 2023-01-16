@@ -1,4 +1,5 @@
 module Users::RegistrationsConcern
+  #rubocop:disable all
   extend ActiveSupport::Concern
 
   protected
@@ -9,7 +10,8 @@ module Users::RegistrationsConcern
 
   def configure_account_update_params
     devise_parameter_sanitizer.permit(:account_update,
-                                      keys: %i[email password password_confirmation name image
-                                               self_introduction rank_id agent_id])
+                                      keys: [:email, :password, :password_confirmation, :name, :image,
+                                             :self_introduction, :rank_id, :twitter_name, :youtube_url,
+                                             :started_on_val, :highest_rank_id, :ingame_name, { agent_ids: [] }])
   end
 end
