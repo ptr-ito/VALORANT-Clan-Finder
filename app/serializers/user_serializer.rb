@@ -27,8 +27,8 @@
 #  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  highest_rank_id        :integer          default(1), not null
-#  rank_id                :bigint           default(1)
+#  highest_rank_id        :integer          default(0)
+#  rank_id                :bigint           default(0)
 #
 # Indexes
 #
@@ -45,7 +45,8 @@
 #
 class UserSerializer
   include JSONAPI::Serializer
-  attributes :id, :name, :image, :confirmed_at, :updated_at, :self_introduction, :twitter_name, :youtube_url, :started_on_val, :ingame_name
+  attributes :id, :name, :image, :confirmed_at, :updated_at, :self_introduction, :twitter_name,
+             :email, :youtube_url, :started_on_val, :ingame_name
 
   attribute :is_login do
     true
