@@ -29,8 +29,8 @@
 #  youtube_url            :string(255)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  highest_rank_id        :integer          default(0)
-#  rank_id                :bigint           default(0)
+#  highest_rank_id        :integer          default(1), not null
+#  rank_id                :bigint           default(1)
 #
 # Indexes
 #
