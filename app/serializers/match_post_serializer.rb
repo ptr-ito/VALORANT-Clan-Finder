@@ -5,7 +5,6 @@
 #  id         :bigint           not null, primary key
 #  content    :text(65535)      not null
 #  status     :integer          default("published"), not null
-#  uuid       :string(255)      not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  mode_id    :integer          not null
@@ -15,7 +14,6 @@
 # Indexes
 #
 #  index_match_posts_on_user_id  (user_id)
-#  index_match_posts_on_uuid     (uuid) UNIQUE
 #
 # Foreign Keys
 #

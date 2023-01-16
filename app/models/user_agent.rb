@@ -5,8 +5,8 @@
 #  id         :bigint           not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  agent_id   :bigint           default(0)
-#  user_id    :bigint           default(0)
+#  agent_id   :bigint           not null
+#  user_id    :bigint           not null
 #
 # Indexes
 #
