@@ -1,4 +1,5 @@
 class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsController
+  #rubocop:disable all
   include DeviseTokenAuth::Concerns::SetUserByToken
   include Users::RegistrationsConcern
   prepend_before_action :configure_sign_up_params, only: %i[create]
@@ -16,13 +17,11 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
     # give redirect value from params priority
     @redirect_url = params.fetch(
       :confirm_success_url,
-      DeviseTokenAuth.default_confirm_success_url
+      DeviseTokenAuth.default_confirm_success_url,
     )
 
     # success redirect url is required
-    if confirmable_enabled? && !@redirect_url
-      return render_create_error_missing_confirm_success_url
-    end
+    return render_create_error_missing_confirm_success_url if confirmable_enabled? && !@redirect_url
 
     # if whitelist is set, validate redirect_url against whitelist
     return render_create_error_redirect_url_not_allowed if blacklisted_redirect_url?(@redirect_url)
@@ -43,9 +42,9 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
       unless @resource.confirmed?
         # user will require email authentication
         @resource.send_confirmation_instructions({
-          client_config: params[:config_name],
-          redirect_url: @redirect_url
-        })
+                                                   client_config: params[:config_name],
+                                                   redirect_url: @redirect_url,
+                                                 })
       end
 
       if active_for_authentication?
