@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_15_203503) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_16_002012) do
   create_table "agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -58,8 +58,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_203503) do
   end
 
   create_table "user_agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "agent_id", null: false
-    t.bigint "user_id", null: false
+    t.bigint "agent_id", default: 0, null: false
+    t.bigint "user_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["agent_id"], name: "index_user_agents_on_agent_id"
@@ -90,8 +90,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_15_203503) do
     t.string "youtube_url"
     t.string "started_on_val"
     t.string "ingame_name"
-    t.bigint "rank_id", default: 1
-    t.integer "highest_rank_id", default: 1, null: false
+    t.bigint "rank_id", default: 0
+    t.integer "highest_rank_id", default: 0, null: false
     t.string "uuid", null: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
