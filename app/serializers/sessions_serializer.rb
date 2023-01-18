@@ -10,4 +10,8 @@ class SessionsSerializer
   attribute :highest_rank do |object|
     object.highest_rank.name.to_s
   end
+
+  attribute :agent do |object|
+    object.agents.map(&:name)
+  end
 end
