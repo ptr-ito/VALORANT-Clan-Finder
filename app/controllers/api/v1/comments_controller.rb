@@ -2,7 +2,7 @@ class Api::V1::CommentsController < ApplicationController
   before_action :authenticate_api_v1_user!, only: %i[create update destroy]
 
   def index
-    comments = commentable.comments.includes(:user, :replies).order(created_at: :asc)
+    comments = commentable.comments.includes(:user).order(created_at: :asc)
     json_string = CommentSerializer.new(comments).serializable_hash.to_json
     render json: json_string
   end
@@ -41,7 +41,7 @@ class Api::V1::CommentsController < ApplicationController
   def destroy
     comment = current_api_v1_user.comments.find(params[:id])
     comment.destroy!
-    comment = Comment.all
+    comment = Comment.all.includes(:user).order(created_at: :asc)
     json_string = CommentSerializer.new(comment).serializable_hash.to_json
     render json: json_string, status: :ok
   end
