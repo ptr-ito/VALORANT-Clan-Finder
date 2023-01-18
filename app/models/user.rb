@@ -51,7 +51,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :user_agents, dependent: :destroy
   has_many :agents, through: :user_agents
-  belongs_to :rank
+  belongs_to :rank, optional: true
 
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable

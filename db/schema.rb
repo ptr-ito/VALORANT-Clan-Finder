@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_17_064441) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_17_205449) do
   create_table "agents", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -18,15 +18,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_064441) do
   end
 
   create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "content", null: false
-    t.bigint "user_id", null: false
-    t.bigint "match_post_id", null: false
+    t.text "content"
+    t.string "commentable_type", null: false
+    t.bigint "commentable_id", null: false
+    t.bigint "root_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "parent_id"
-    t.bigint "root_id"
-    t.index ["match_post_id"], name: "index_comments_on_match_post_id"
-    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.bigint "user_id", null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable"
     t.index ["root_id"], name: "index_comments_on_root_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -101,10 +100,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_17_064441) do
     t.index ["uuid"], name: "index_users_on_uuid", unique: true
   end
 
-  add_foreign_key "comments", "comments", column: "parent_id"
   add_foreign_key "comments", "comments", column: "root_id"
-  add_foreign_key "comments", "match_posts"
-  add_foreign_key "comments", "users"
   add_foreign_key "match_posts", "users"
   add_foreign_key "match_ranks", "match_posts"
   add_foreign_key "match_ranks", "ranks"
