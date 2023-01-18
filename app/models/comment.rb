@@ -22,9 +22,10 @@
 #  fk_rails_...  (root_id => comments.id)
 #
 class Comment < ApplicationRecord
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, polymorphic: true, inverse_of: :comments
   belongs_to :user
   validates :content, presence: true, length: { maximum: 65_535 }
 
-  has_many :replies, class_name: 'Comment', foreign_key: :root_id, dependent: :destroy
+  has_many :replies, class_name: 'Comment', foreign_key: :root_id, dependent: :destroy,
+                     inverse_of: :comments
 end

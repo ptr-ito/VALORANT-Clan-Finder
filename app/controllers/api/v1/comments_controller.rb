@@ -9,7 +9,8 @@ class Api::V1::CommentsController < ApplicationController
 
   def create
     if comment = Comment.find_by(id: params[:root_id])  # rubocop:disable Lint/AssignmentInCondition
-      reply = comment.replies.build(comment_params.merge(user_id: current_api_v1_user.id, commentable:))
+      reply = comment.replies.build(comment_params.merge(user_id: current_api_v1_user.id,
+                                                         commentable:))
       if reply.save
         json_string = CommentSerializer.new(reply).serializable_hash.to_json
         render json: json_string, status: :ok
@@ -55,4 +56,3 @@ class Api::V1::CommentsController < ApplicationController
     params[:commentable_type].constantize.find_by(id: params[:commentable_id])
   end
 end
-
