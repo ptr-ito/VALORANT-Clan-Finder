@@ -20,13 +20,12 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class MatchPost < ApplicationRecord
+  include Commentable
   belongs_to :user
   has_many :match_ranks, dependent: :destroy
   has_many :ranks, through: :match_ranks
-  has_many :comments, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
-  # belongs_to_active_hash :rank
   belongs_to_active_hash :mood
   belongs_to_active_hash :mode
 
