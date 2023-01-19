@@ -86,8 +86,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  host = { ENV["DEPLOY_APPNAME"] }
-  config.action_mailer.default_url_options = { host: host, protocol: "https" }
+  host = ENV['DEPLOY_APPNAME']
+  config.action_mailer.default_url_options = { host:, protocol: 'https' }
 
   config.action_mailer.smtp_settings = {
     address: ENV['SMTP_ADDRESS'],
@@ -96,6 +96,6 @@ Rails.application.configure do
     user_name: ENV['SMTP_USER_NAME'],
     password: ENV['SMTP_PASSWD'],
     authentication: 'login',
-    enable_starttls_auto: true
+    enable_starttls_auto: true,
   }
 end
