@@ -53,5 +53,5 @@ production:
   <<: *default
   database: cld36pcha005x9tryhx0nhjeu
   username: cld36pch9005v9try98sn7ew3
-  username: <%= ENV['VALOFINDER_DATABASE_PASSWORD'] %>
-  password: <%= ENV['DATABASE_URL'] %>
+  password: <%= ENV['VALOFINDER_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
