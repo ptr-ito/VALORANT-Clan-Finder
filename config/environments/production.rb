@@ -81,8 +81,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  host = ENV['DEPLOY_APP_NAME']
-  config.action_mailer.default_url_options = { host:, protocol: 'https' }
+  config.action_mailer.default_url_options = { host: ENV['DEPLOY_APP_NAME'], protocol: 'https' }
 
   config.action_mailer.delivery_method = :smtp
 
