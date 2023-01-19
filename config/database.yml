@@ -51,7 +51,7 @@ test:
 #
 production:
   <<: *default
-  database: cld2ufinn004v9trydls92ha4
-  username: cld2ufinm004t9try6kfb2o9r
-  password: <%= ENV['API_DATABASE_PASSWORD'] %>
-  url: <%= ENV['API_DATABASE_URL'] %>
+  database: cld36pcha005x9tryhx0nhjeu
+  username: cld36pch9005v9try98sn7ew3
+  username: <%= ENV['VALOFINDER_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_URL'] %>
