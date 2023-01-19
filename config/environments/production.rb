@@ -82,7 +82,7 @@ Rails.application.configure do
   end
 
   host = ENV['DEPLOY_APP_NAME']
-  config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  config.action_mailer.default_url_options = {  host: host, protocol: 'https' }
 
   config.action_mailer.delivery_method = :smtp
 
