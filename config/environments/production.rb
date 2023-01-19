@@ -81,7 +81,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  config.action_mailer.default_url_options = { host: ENV['DEPLOY_APP_NAME'], protocol: 'https' }
+  config.action_mailer.default_url_options = { host: 'https://valofinder.magia.runteq.jp' }
 
   config.action_mailer.delivery_method = :smtp
 
@@ -92,24 +92,6 @@ Rails.application.configure do
     user_name: ENV['SMTP_USER_NAME'],
     password: ENV['SMTP_PASSWD'],
     authentication: 'plain',
-    enable_starttls_auto: true,
-  }
-
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.delivery_method = :smtp
-
-  host = ENV['DEPLOY_APPNAME']
-  config.action_mailer.default_url_options = { host:, protocol: 'https' }
-
-  config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_ADDRESS'],
-    domain: ENV['SMTP_DOMAIN'],
-    port: ENV['SMTP_PORT'],
-    user_name: ENV['SMTP_USER_NAME'],
-    password: ENV['SMTP_PASSWD'],
-    authentication: 'login',
     enable_starttls_auto: true,
   }
 end
