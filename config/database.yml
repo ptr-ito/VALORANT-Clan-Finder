@@ -53,5 +53,5 @@ production:
   <<: *default
   database: cld2ufinn004v9trydls92ha4
   username: cld2ufinm004t9try6kfb2o9r
-  password: <%= ENV["API_DATABASE_PASSWORD"] %>
-  url: <%= ENV["API_DATABASE_URL"] %>
+  password: <%= ENV['API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['API_DATABASE_URL'] %>
