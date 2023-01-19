@@ -66,6 +66,7 @@ Metrics/BlockLength:
     - "spec/**/*"
     - "lib/tasks/auto_annotate_models.rake"
     - "config/environments/development.rb"
+    - "config/environments/production.rb"
 
 # 複数行の最後にカンマを付けることを許可
 Style/TrailingCommaInArguments:
