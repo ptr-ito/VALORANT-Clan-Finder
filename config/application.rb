@@ -41,7 +41,6 @@ module Api
     # Skip views, helpers and assets when generating a new resource.
     config.action_controller.forgery_protection_origin_check = false
 
-
     config.api_only = true
 
     config.generators do |g|
