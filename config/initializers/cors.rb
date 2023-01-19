@@ -7,7 +7,9 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:3001', 'https://valorant-finder.web.app/'
+    # 今回はRailsのポートが3000番、Reactのポートが3001番にするので、Reactのリクエストを許可するためにlocalhost:3000を設定
+    origins 'http://localhost:3001', 'https://valofinder.magia.runteq.jp'
+
 
     resource '*',
              headers: :any,
