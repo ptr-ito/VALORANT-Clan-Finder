@@ -15,8 +15,7 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
-  socket: /tmp/mysql.sock
-  host: db
+  host: localhost
 
 development:
   <<: *default
@@ -51,7 +50,6 @@ test:
 #
 production:
   <<: *default
-  database: cld2ufinn004v9trydls92ha4
-  username: cld2ufinm004t9try6kfb2o9r
-  password: <%= ENV['API_DATABASE_PASSWORD'] %>
-  url: <%= ENV['API_DATABASE_URL'] %>
+  database: valorant_finder_production
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
