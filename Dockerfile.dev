@@ -1,0 +1,29 @@
+ARG ROOT="/api"
+ARG RUBY_IMAGE=ruby:3.1.2
+ARG BUNDLER_VERSION=2.3.7
+
+FROM $RUBY_IMAGE
+ARG ROOT
+ARG RUBY_VERSION
+ARG NODE_VERSION
+ARG BUNDLER_VERSION
+
+ENV LANG=C.UTF-8
+ENV TZ=Asia/Tokyo
+
+WORKDIR ${ROOT}
+
+RUN apt-get update -qq && apt-get install -y build-essential
+
+COPY Gemfile ${ROOT}
+COPY Gemfile.lock ${ROOT}
+
+RUN gem install bundler
+RUN bundle install --jobs=4
+
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT ["entrypoint.div.sh"]
+EXPOSE 3000
+
+CMD ["rails", "server", "-b", "0.0.0.0"]

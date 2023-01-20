@@ -71,6 +71,8 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  config.action_mailer.raise_delivery_errors = true
+
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
@@ -81,36 +83,17 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
 
-  host = ENV['DEPLOY_APP_NAME']
-  config.action_mailer.default_url_options = { host:, protocol: 'https' }
+  config.action_mailer.default_url_options = Settings.default_url_options.to_h
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_ADDRESS'],
-    port: ENV['SMTP_PORT'],
-    domain: ENV['SMTP_DOMAIN'],
-    user_name: ENV['SMTP_USER_NAME'],
-    password: ENV['SMTP_PASSWD'],
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: ENV['EMAIL_ADDRESS'],
+    password: ENV['EMAIL_PASSWORD'],
     authentication: 'plain',
-    enable_starttls_auto: true,
-  }
-
-  # Do not dump schema after migrations.
-  config.active_record.dump_schema_after_migration = false
-
-  config.action_mailer.delivery_method = :smtp
-
-  host = ENV['DEPLOY_APPNAME']
-  config.action_mailer.default_url_options = { host:, protocol: 'https' }
-
-  config.action_mailer.smtp_settings = {
-    address: ENV['SMTP_ADDRESS'],
-    domain: ENV['SMTP_DOMAIN'],
-    port: ENV['SMTP_PORT'],
-    user_name: ENV['SMTP_USER_NAME'],
-    password: ENV['SMTP_PASSWD'],
-    authentication: 'login',
     enable_starttls_auto: true,
   }
 end
