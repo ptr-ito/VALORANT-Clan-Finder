@@ -13,14 +13,16 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DB_USERNAME'] %>
+  username: root
   password: <%= ENV['DB_PASSWORD'] %>
-  socket: /tmp/mysql.sock
   host: db
 
 development:
   <<: *default
   database: valorant_finder_development
+  username: root
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -51,7 +53,7 @@ test:
 #
 production:
   <<: *default
-  database: cld36pcha005x9tryhx0nhjeu
-  username: cld36pch9005v9try98sn7ew3
-  password: <%= ENV['VALOFINDER_DATABASE_PASSWORD'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  # database: cld36pcha005x9tryhx0nhjeu
+  # username: <%= ENV['API_DB_USERNAME'] %>
+  # password: <%= ENV['VALOFINDER_DATABASE_PASSWORD'] %>
+  # url: <%= ENV['API_DATABASE_URL'] %>
