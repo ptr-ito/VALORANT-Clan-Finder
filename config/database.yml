@@ -53,4 +53,4 @@ production:
   database: cld36pcha005x9tryhx0nhjeu
   username: cld36pch9005v9try98sn7ew3
   password: <%= ENV['API_DATABASE_PASSWORD'] %>
-  url: <%= ENV['API_DATABASE_URL'] %>
+  url: <%= ENV['API_D`ATABASE_URL'] %>
