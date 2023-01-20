@@ -2,16 +2,15 @@ version: "3.9"
 services:
   db:
     image: mysql:8.0
-    platform: linux/amd64
+    platform: linux/x86_64
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql_data:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: "ptr2839"
-      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_PASSWORD: password
     ports:
       - "3306:3306"
-  web:
+  api:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
