@@ -75,4 +75,16 @@ Rails.application.configure do
     Bullet.console = false # 警告をブラウザーのconsole.logに記録
     Bullet.rails_logger = true # 警告を直接Railsログに追加
   end
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: ENV['EMAIL_ADDRESS'],
+    password: ENV['EMAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true,
+  }
 end
