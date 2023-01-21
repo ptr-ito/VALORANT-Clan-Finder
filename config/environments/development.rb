@@ -66,7 +66,7 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = Settings.smtp_settings.to_h
   config.action_mailer.default_url_options = Settings.default_url_options.to_h
-  config.action_mailer.default_options = { from: ENV['EMAIL_ADDRESS'] }
+  # config.action_mailer.default_options = { from: ENV['EMAIL_ADDRESS'] }
 
   config.after_initialize do
     Bullet.enable = true # Bullet gemを有効
@@ -76,15 +76,15 @@ Rails.application.configure do
     Bullet.rails_logger = true # 警告を直接Railsログに追加
   end
 
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'gmail.com',
-    user_name: ENV['EMAIL_ADDRESS'],
-    password: ENV['EMAIL_PASSWORD'],
-    authentication: 'plain',
-    enable_starttls_auto: true,
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address: 'smtp.gmail.com',
+  #   port: 587,
+  #   domain: 'gmail.com',
+  #   user_name: ENV['EMAIL_ADDRESS'],
+  #   password: ENV['EMAIL_PASSWORD'],
+  #   authentication: 'plain',
+  #   enable_starttls_auto: true,
+  # }
 end
