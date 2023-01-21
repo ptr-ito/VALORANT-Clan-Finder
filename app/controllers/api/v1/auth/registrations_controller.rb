@@ -43,7 +43,7 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
         # user will require email authentication
         @resource.send_confirmation_instructions({
                                                    client_config: params[:config_name],
-                                                   redirect_url: @redirect_url,
+                                                   redirect_url: @redirect_url, allow_other_host: false,
                                                  })
       end
 
