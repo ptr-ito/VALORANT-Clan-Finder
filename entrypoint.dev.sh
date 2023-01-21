@@ -1,6 +1,6 @@
 #!/bin/sh
 set -e
 
-rm -f /myapp/tmp/pids/server.pid
+rm -f /api/tmp/pids/server.pid
 
 exec "$@"

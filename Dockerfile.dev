@@ -7,9 +7,11 @@ ARG ROOT
 ARG RUBY_VERSION
 ARG NODE_VERSION
 ARG BUNDLER_VERSION
+ENV RAILS_ENV=development
 
 ENV LANG=C.UTF-8
 ENV TZ=Asia/Tokyo
+
 
 WORKDIR ${ROOT}
 
@@ -21,9 +23,9 @@ COPY Gemfile.lock ${ROOT}
 RUN gem install bundler
 RUN bundle install --jobs=4
 
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.div.sh"]
+COPY entrypoint.dev.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.dev.sh
+ENTRYPOINT ["entrypoint.dev.sh"]
 EXPOSE 3000
 
 CMD ["rails", "server", "-b", "0.0.0.0"]
