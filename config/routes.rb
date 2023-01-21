@@ -18,10 +18,5 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  get '*path', to: 'application#fallback_index_html', constraints: lambda { |request|
-    !request.xhr? && request.format.html?
-  }
-
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
