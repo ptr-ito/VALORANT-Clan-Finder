@@ -62,5 +62,5 @@ DeviseTokenAuth.setup do |config|
   # send email, set it to true. (This is a setting for compatibility)
   # config.send_confirmation_email = true
 
-  # config.redirect_whitelist = 'https://valorant-finder.web.app/'
+  config.redirect_whitelist = 'https://valorant-finder.web.app'
 end
