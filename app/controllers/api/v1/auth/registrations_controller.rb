@@ -38,7 +38,6 @@ class Api::V1::Auth::RegistrationsController < DeviseTokenAuth::RegistrationsCon
 
     if @resource.save
       yield @resource if block_given?
-
       unless @resource.confirmed?
         # user will require email authentication
         @resource.send_confirmation_instructions({
