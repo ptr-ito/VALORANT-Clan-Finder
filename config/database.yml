@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  database: cld36pcha005x9tryhx0nhjeu
-  username: cld36pch9005v9try98sn7ew3
+  database: cld774r8j00dk9try90f29ce6
+  username: cld774r8i00dj9try6dfb5vkd
   password: <%= ENV['API_DATABASE_PASSWORD'] %>
   url: <%= ENV['API_DATABASE_URL'] %>
