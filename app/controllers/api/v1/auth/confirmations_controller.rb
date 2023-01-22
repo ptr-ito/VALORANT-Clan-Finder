@@ -23,7 +23,8 @@ class Api::V1::Auth::ConfirmationsController < DeviseTokenAuth::ConfirmationsCon
 
       redirect_to(redirect_to_link, allow_other_host: true)
     else
-      redirect_to DeviseTokenAuth::Url.generate(redirect_url, account_confirmation_success: false, allow_other_host: true)
+      redirect_to DeviseTokenAuth::Url.generate(redirect_url, account_confirmation_success: false,
+                                                              allow_other_host: true)
     end
   end
 end
