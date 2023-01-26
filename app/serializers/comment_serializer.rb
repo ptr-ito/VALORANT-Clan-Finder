@@ -41,4 +41,8 @@ class CommentSerializer
   attribute :user_image do |object|
     object.user.image
   end
+
+  attribute :user_uuid do |object|
+    object.user.uuid.to_s
+  end
 end
