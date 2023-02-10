@@ -9,5 +9,5 @@
 #
 class Agent < ApplicationRecord
   has_many :users, through: :user_agents
-  has_many :user_agnets, dependent: :destroy
+  has_many :user_agents, dependent: :destroy
 end

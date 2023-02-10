@@ -9,32 +9,22 @@ class Api::V1::CommentsController < ApplicationController
 
   def create
     if comment = Comment.find_by(id: params[:root_id])  # rubocop:disable Lint/AssignmentInCondition
-      reply = comment.replies.build(comment_params.merge(user_id: current_api_v1_user.id,
-                                                         commentable:))
-      if reply.save
-        json_string = CommentSerializer.new(reply).serializable_hash.to_json
-        render json: json_string, status: :ok
-      else
-        render json: json_string.errors, status: :bad_request
-      end
+      @reply = comment.replies.build(comment_params.merge(user_id: current_api_v1_user.id,
+                                                          commentable:))
+      reply_comment
     else
-      comment = current_api_v1_user.comments.build(comment_params.merge(commentable:))
-      if comment.save
-        json_string = CommentSerializer.new(comment).serializable_hash.to_json
-        render json: json_string, status: :ok
-      else
-        render json: json_string.errors, status: :bad_request
-      end
+      @comment = current_api_v1_user.comments.build(comment_params.merge(commentable:))
+      root_comment
     end
   end
 
   def update
     comment = Comment.find(params[:id])
+    json_string = CommentSerializer.new(comment).serializable_hash.to_json
     if comment.update(comment_params)
-      json_string = CommentSerializer.new(comment).serializable_hash.to_json
       render json: json_string, status: :ok
     else
-      render json: json_string.errors, status: :bad_request
+      render400(nil, article.errors.full_messages)
     end
   end
 
@@ -54,5 +44,23 @@ class Api::V1::CommentsController < ApplicationController
 
   def commentable
     params[:commentable_type].constantize.find_by(id: params[:commentable_id])
+  end
+
+  def reply_comment
+    if @reply.save
+      json_string = CommentSerializer.new(@reply).serializable_hash.to_json
+      render json: json_string
+    else
+      render400(nil, @reply.errors.full_messages)
+    end
+  end
+
+  def root_comment
+    if @comment.save
+      json_string = CommentSerializer.new(@comment).serializable_hash.to_json
+      render json: json_string
+    else
+      render400(nil, @comment.errors.full_messages)
+    end
   end
 end
