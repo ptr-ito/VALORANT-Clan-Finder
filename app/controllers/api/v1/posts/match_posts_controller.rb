@@ -17,9 +17,9 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
     match_post = current_api_v1_user.match_posts.build(match_post_params)
     if match_post.save
       json_string = MatchPostSerializer.new(match_post).serializable_hash.to_json
-      render json: json_string, status: :ok
+      render json: json_string
     else
-      render json: json_string.errors, status: :bad_request
+      render_400(nil, match_post.errors.full_messages)
     end
   end
 
@@ -27,9 +27,9 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
     match_post = MatchPost.find(params[:id])
     if match_post.update(match_post_params)
       json_string = MatchPostSerializer.new(match_post).serializable_hash.to_json
-      render json: json_string, status: :ok
+      render json: json_string
     else
-      render json: match_post.errors, status: :bad_request
+      render_400(nil, match_post.errors.full_messages)
     end
   end
 
