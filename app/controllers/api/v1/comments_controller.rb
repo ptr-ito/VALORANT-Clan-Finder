@@ -10,7 +10,7 @@ class Api::V1::CommentsController < ApplicationController
   def create
     if comment = Comment.find_by(id: params[:root_id])  # rubocop:disable Lint/AssignmentInCondition
       @reply = comment.replies.build(comment_params.merge(user_id: current_api_v1_user.id,
-                                                         commentable:))
+                                                          commentable:))
       reply_comment
     else
       @comment = current_api_v1_user.comments.build(comment_params.merge(commentable:))
@@ -24,7 +24,7 @@ class Api::V1::CommentsController < ApplicationController
     if comment.update(comment_params)
       render json: json_string, status: :ok
     else
-      render_400(nil, article.errors.full_messages)
+      render400(nil, article.errors.full_messages)
     end
   end
 
@@ -47,11 +47,11 @@ class Api::V1::CommentsController < ApplicationController
   end
 
   def reply_comment
-    if @comment.save
+    if @reply.save
       json_string = CommentSerializer.new(@reply).serializable_hash.to_json
       render json: json_string
     else
-      render_400(nil, @comment.errors.full_messages)
+      render400(nil, @reply.errors.full_messages)
     end
   end
 
@@ -60,7 +60,7 @@ class Api::V1::CommentsController < ApplicationController
       json_string = CommentSerializer.new(@comment).serializable_hash.to_json
       render json: json_string
     else
-      render_400(nil, @comment.errors.full_messages)
+      render400(nil, @comment.errors.full_messages)
     end
   end
 end

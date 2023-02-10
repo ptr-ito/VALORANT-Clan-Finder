@@ -19,7 +19,7 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
       json_string = MatchPostSerializer.new(match_post).serializable_hash.to_json
       render json: json_string
     else
-      render_400(nil, match_post.errors.full_messages)
+      render400(nil, match_post.errors.full_messages)
     end
   end
 
@@ -29,7 +29,7 @@ class Api::V1::Posts::MatchPostsController < ApplicationController
       json_string = MatchPostSerializer.new(match_post).serializable_hash.to_json
       render json: json_string
     else
-      render_400(nil, match_post.errors.full_messages)
+      render400(nil, match_post.errors.full_messages)
     end
   end
 
