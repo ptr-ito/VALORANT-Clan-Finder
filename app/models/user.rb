@@ -53,6 +53,12 @@ class User < ApplicationRecord
   has_many :agents, through: :user_agents
   belongs_to :rank, optional: true
 
+  validates :name, presence: true, length: { minimum: 3, maximum: 20 }
+  validates :self_introduction, length: { maximum: 65_535 }
+
+  validates :rank_id, presence: true
+  validates :highest_rank_id, presence: true
+
   devise :database_authenticatable, :registerable, :validatable,
          :recoverable, :rememberable, :confirmable
   include DeviseTokenAuth::Concerns::User

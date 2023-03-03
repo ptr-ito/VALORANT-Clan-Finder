@@ -21,4 +21,7 @@
 class UserAgent < ApplicationRecord
   belongs_to :agent
   belongs_to :user
+
+  validates :agent, presence: true
+  validates :user, presence: true
 end
