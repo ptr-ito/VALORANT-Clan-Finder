@@ -25,13 +25,13 @@ class MatchPost < ApplicationRecord
   has_many :match_ranks, dependent: :destroy
   has_many :ranks, through: :match_ranks
 
+  validates :content, presence: true, length: { maximum: 65_535 }
+  validates :mode_id, presence: true
+  validates :mood_id, presence: true
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :mood
   belongs_to_active_hash :mode
-
-  validates :content, presence: true, length: { maximum: 140 }
-  validates :mode_id, presence: true
-  validates :mood_id, presence: true
 
   enum :status, { published: 0, closed: 1 }
 end

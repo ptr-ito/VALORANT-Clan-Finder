@@ -21,4 +21,7 @@
 class MatchRank < ApplicationRecord
   belongs_to :match_post
   belongs_to :rank
+
+  validates :match_post, presence: true
+  validates :rank, presence: true
 end
